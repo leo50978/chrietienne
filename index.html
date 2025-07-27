@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CELI - Former, Investir, Transformer</title>
+    <title>CICLE - Investissement Chrétien pour la Liberté Économique</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,14 +14,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Anime.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --primary-gradient: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            --secondary-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --accent-gradient: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
         }
         
         body {
@@ -44,10 +41,22 @@
             background: var(--accent-gradient);
         }
         
-        .glass-effect {
-            backdrop-filter: blur(20px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(43, 88, 118, 0.9), rgba(78, 67, 118, 0.9)),
+                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .value-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-left-color: #4e4376;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
         .floating {
@@ -59,494 +68,662 @@
             50% { transform: translateY(-20px); }
         }
         
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23667eea" stop-opacity="0.3"/><stop offset="100%" stop-color="%23764ba2" stop-opacity="0.1"/></radialGradient></defs><rect width="100%" height="100%" fill="url(%23a)"/></svg>');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-        
-        .btn-primary {
-            background: var(--primary-gradient);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
         .section-reveal {
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
         
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="overflow-x-hidden">
-    
+<body class="bg-gray-50">
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 glass-effect">
+    <header class="fixed top-0 w-full z-50 bg-white shadow-md">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center">
-                       <img src="logojojo-removebg-preview.png" class="h-15 w-15" alt="">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center">
+                     <img src="logojojo-removebg-preview.png" alt="">
                     </div>
-                    <span class="font-display font-bold text-2xl text-white">CELI</span>
+                    <span class="font-display font-bold text-2xl text-gray-800">CICLE</span>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#" class="text-white hover:text-blue-300 transition-colors font-medium">Accueil</a>
-                    <a href="#" class="text-white hover:text-blue-300 transition-colors font-medium">À propos</a>
-                    <a href="#" class="text-white hover:text-blue-300 transition-colors font-medium">Formations</a>
-                    <a href="#" class="text-white hover:text-blue-300 transition-colors font-medium">Programmes</a>
-                    <a href="#" class="text-white hover:text-blue-300 transition-colors font-medium">Événements</a>
-                    <a href="#" class="text-white hover:text-blue-300 transition-colors font-medium">Partenaires</a>
-                    <a href="#" class="text-white hover:text-blue-300 transition-colors font-medium">Contact</a>
+                    <a href="#mission" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Mission</a>
+                    <a href="#vision" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Vision</a>
+                    <a href="#valeurs" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Valeurs</a>
+                    <a href="#programmes" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Programmes</a>
+                    <a href="#equipe" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Équipe</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Contact</a>
                 </div>
                 
                 <!-- CTA Button -->
-                <button class="hidden md:block btn-primary text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
-                    Rejoindre
+                <button class="hidden md:block gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                    Devenir Membre
                 </button>
                 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden text-white text-2xl" id="mobile-menu-btn">
+                <button class="lg:hidden text-gray-700 text-2xl" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </nav>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu fixed top-0 right-0 w-80 h-full bg-gray-900 z-40 p-6" id="mobile-menu">
-            <button class="text-white text-2xl mb-8 float-right" id="close-menu-btn">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="clear-both space-y-6 mt-12">
-                <a href="#" class="block text-white text-lg font-medium hover:text-blue-300 transition-colors">Accueil</a>
-                <a href="#" class="block text-white text-lg font-medium hover:text-blue-300 transition-colors">À propos</a>
-                <a href="#" class="block text-white text-lg font-medium hover:text-blue-300 transition-colors">Formations</a>
-                <a href="#" class="block text-white text-lg font-medium hover:text-blue-300 transition-colors">Programmes</a>
-                <a href="#" class="block text-white text-lg font-medium hover:text-blue-300 transition-colors">Événements</a>
-                <a href="#" class="block text-white text-lg font-medium hover:text-blue-300 transition-colors">Partenaires</a>
-                <a href="#" class="block text-white text-lg font-medium hover:text-blue-300 transition-colors">Contact</a>
-                <button class="w-full btn-primary text-white px-6 py-3 rounded-full font-semibold mt-6">
-                    Rejoindre
-                </button>
-            </div>
-        </div>
     </header>
-    
+
     <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-        
-        <!-- Floating Elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-blue-400 rounded-full opacity-20 floating"></div>
-        <div class="absolute bottom-32 right-16 w-16 h-16 bg-purple-400 rounded-full opacity-30 floating" style="animation-delay: -2s;"></div>
-        <div class="absolute top-1/2 right-1/4 w-12 h-12 bg-pink-400 rounded-full opacity-25 floating" style="animation-delay: -4s;"></div>
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
         
         <div class="container mx-auto px-4 py-20 relative z-10">
             <div class="max-w-4xl mx-auto text-center">
                 <h1 class="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
-                    Former, Investir, <span class="gradient-accent bg-clip-text text-transparent">Transformer</span>
+                    <span class="gradient-accent bg-clip-text text-transparent">Investissement Chrétien</span><br>pour la Liberté Économique
                 </h1>
                 <p class="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-                    Une économie chrétienne libre et solidaire pour un avenir meilleur
+                    Former, connecter et équiper les investisseurs chrétiens pour transformer l'économie selon les valeurs du Royaume
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all">
-                        <i class="fas fa-eye mr-2"></i>
-                        Voir notre mission
-                    </button>
-                    <button class="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all">
-                        <i class="fas fa-user-graduate mr-2"></i>
-                        S'inscrire à une formation
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white text-center">
-            <div class="animate-bounce">
-                <i class="fas fa-chevron-down text-2xl"></i>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Mission & Vision Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="section-reveal">
-                        <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
-                            <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mb-6">
-                                <i class="fas fa-book-open text-white text-2xl"></i>
-                            </div>
-                            <h3 class="font-display font-bold text-2xl text-gray-800 mb-4">📖 Notre Mission</h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Former des jeunes aux métiers techniques et entrepreneuriaux dans un cadre chrétien. 
-                                Développer l'autonomie économique par l'acquisition de compétences pratiques. 
-                                Promouvoir des valeurs de solidarité et d'excellence professionnelle.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="section-reveal">
-                        <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
-                            <div class="w-16 h-16 gradient-secondary rounded-xl flex items-center justify-center mb-6">
-                                <i class="fas fa-globe-americas text-white text-2xl"></i>
-                            </div>
-                            <h3 class="font-display font-bold text-2xl text-gray-800 mb-4">🌍 Notre Vision</h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Être un centre d'excellence reconnu en Haïti pour la formation technique. 
-                                Contribuer à la transformation économique du pays par l'entrepreneuriat. 
-                                Rayonner comme modèle d'éducation chrétienne intégrale.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-12">
-                    <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all">
-                        <i class="fas fa-history mr-2"></i>
-                        Découvrir notre histoire
-                    </button>
+                    <a href="#mission" class="gradient-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all">
+                        <i class="fas fa-cross mr-2"></i>
+                        Découvrir notre mission
+                    </a>
+                    <a href="#programmes" class="bg-white text-gray-800 px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all">
+                        <i class="fas fa-calendar-check mr-2"></i>
+                        Nos programmes
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Formations Section -->
-    <section class="py-20 bg-white">
+
+    <!-- Mission Section -->
+    <section id="mission" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-800 mb-6">
-                    Des formations concrètes pour une <span class="gradient-primary bg-clip-text text-transparent">autonomie réelle</span>
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Notre <span class="gradient-primary bg-clip-text text-transparent">Mission</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Découvrez nos programmes de formation technique conçus pour répondre aux besoins du marché du travail haïtien
+                <div class="w-24 h-1 gradient-primary mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Promouvoir l'entrepreneuriat, l'investissement responsable et la liberté économique fondés sur les principes bibliques.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <!-- Formation Cards -->
-                <div class="section-reveal card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="gradient-primary h-48 flex items-center justify-center">
-                        <i class="fas fa-bolt text-white text-5xl"></i>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm value-card">
+                    <div class="w-16 h-16 gradient-primary rounded-lg flex items-center justify-center mb-6 text-white text-2xl">
+                        <i class="fas fa-bible"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl text-gray-800 mb-3">Électricité Bâtiment</h3>
-                        <p class="text-gray-600 mb-4">Installation électrique résidentielle et commerciale, maintenance et dépannage.</p>
-                        <button class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
-                        </button>
-                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Contexte</h3>
+                    <p class="text-gray-600">
+                        Dans un monde économique souvent gouverné par des intérêts matérialistes, les chrétiens manquent de ressources et d'accompagnement pour investir selon leurs valeurs. Le CICLE répond à ce besoin crucial.
+                    </p>
                 </div>
                 
-                <div class="section-reveal card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="gradient-secondary h-48 flex items-center justify-center">
-                        <i class="fas fa-wrench text-white text-5xl"></i>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm value-card">
+                    <div class="w-16 h-16 gradient-secondary rounded-lg flex items-center justify-center mb-6 text-white text-2xl">
+                        <i class="fas fa-bullseye"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl text-gray-800 mb-3">Plomberie</h3>
-                        <p class="text-gray-600 mb-4">Installation sanitaire, réparation de canalisations et systèmes d'eau.</p>
-                        <button class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
-                        </button>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Objectifs</h3>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Former les chrétiens en leadership économique</li>
+                        <li>Encourager les investissements éthiques</li>
+                        <li>Créer un réseau d'investisseurs engagés</li>
+                        <li>Influencer positivement les politiques économiques</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="py-20 gradient-primary">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+                    Notre <span class="gradient-accent bg-clip-text text-transparent">Vision</span>
+                </h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-xl text-blue-100 mb-8">
+                    "Bâtir une communauté d'investisseurs chrétiens libres, influents et engagés pour un monde économiquement équitable, prospère et fidèle aux valeurs du Royaume de Dieu."
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="font-bold text-lg text-white mb-3">Court Terme</h3>
+                        <p class="text-blue-100">
+                            Structurer l'organisation et lancer les premiers programmes de formation
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="font-bold text-lg text-white mb-3">Moyen Terme</h3>
+                        <p class="text-blue-100">
+                            Développer l'incubateur et le fonds d'investissement solidaire
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="font-bold text-lg text-white mb-3">Long Terme</h3>
+                        <p class="text-blue-100">
+                            Élargir notre impact à l'international et influencer les politiques économiques
+                        </p>
                     </div>
                 </div>
-                
-                <div class="section-reveal card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="gradient-accent h-48 flex items-center justify-center">
-                        <i class="fas fa-print text-white text-5xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valeurs Section -->
+    <section id="valeurs" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Nos <span class="gradient-primary bg-clip-text text-transparent">Valeurs</span>
+                </h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Les principes fondamentaux qui guident toutes nos actions et décisions
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl text-gray-800 mb-3">Sérigraphie</h3>
-                        <p class="text-gray-600 mb-4">Impression textile, création graphique et techniques d'impression artisanale.</p>
-                        <button class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
-                        </button>
-                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Intégrité</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous pratiquons une transparence absolue dans toutes nos transactions et relations.
+                    </p>
                 </div>
                 
-                <div class="section-reveal card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="bg-gradient-to-br from-green-400 to-blue-500 h-48 flex items-center justify-center">
-                        <i class="fas fa-motorcycle text-white text-5xl"></i>
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-hands-helping"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl text-gray-800 mb-3">Mécanique Moto</h3>
-                        <p class="text-gray-600 mb-4">Réparation et entretien de motocyclettes, diagnostic et pièces détachées.</p>
-                        <button class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
-                        </button>
-                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Responsabilité</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous rendons compte à Dieu, à nos membres et aux communautés que nous servons.
+                    </p>
                 </div>
                 
-                <div class="section-reveal card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="bg-gradient-to-br from-purple-400 to-pink-500 h-48 flex items-center justify-center">
-                        <i class="fas fa-video text-white text-5xl"></i>
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-award"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl text-gray-800 mb-3">Vidéographie</h3>
-                        <p class="text-gray-600 mb-4">Production audiovisuelle, montage vidéo et techniques de communication visuelle.</p>
-                        <button class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
-                        </button>
-                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Excellence</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous visons la plus haute qualité dans tous nos programmes et services.
+                    </p>
                 </div>
                 
-                <div class="section-reveal card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="bg-gradient-to-br from-yellow-400 to-orange-500 h-48 flex items-center justify-center">
-                        <i class="fas fa-laptop-code text-white text-5xl"></i>
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-pray"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl text-gray-800 mb-3">Informatique</h3>
-                        <p class="text-gray-600 mb-4">Maintenance informatique, programmation et création de sites web.</p>
-                        <button class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
-                        </button>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Foi Vivante</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous intégrons la prière et les principes bibliques dans toutes nos activités.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-hand-holding-heart"></i>
                     </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Solidarité</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous croyons en la puissance du partage et de l'entraide communautaire.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Bien Commun</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous cherchons le profit, mais toujours au service du développement humain intégral.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programmes Section -->
+    <section id="programmes" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Nos <span class="gradient-primary bg-clip-text text-transparent">Programmes</span>
+                </h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Des formations et accompagnements concrets pour un impact économique réel
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="gradient-primary text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Formations</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Leadership économique chrétien</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Gestion financière biblique</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Création d'entreprise éthique</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="gradient-secondary text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Accompagnement</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Incubateur de projets chrétiens</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Coaching pour entrepreneurs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Programme de mentorat</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="gradient-accent text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Réseautage</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Rencontres trimestrielles</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Forums d'investissement</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Plateforme collaborative</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-purple-500 to-pink-500 text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-comments-dollar"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Plaidoyer</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Sensibilisation communautaire</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Dialogue avec les décideurs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Études et publications</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-green-500 to-teal-500 text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Projets à Impact</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Fonds d'investissement solidaire</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Appui aux initiatives locales</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Programmes de microfinance</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-yellow-500 to-orange-500 text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">École Professionnelle</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Formations techniques certifiantes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Ateliers pratiques</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Insertion professionnelle</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all">
-                    <i class="fas fa-graduation-cap mr-2"></i>
-                    Voir toutes les formations
+                <button class="gradient-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    Voir notre calendrier d'événements
                 </button>
             </div>
         </div>
     </section>
-    
-    <!-- Testimonial Section -->
-    <section class="py-20 gradient-primary">
+
+    <!-- Équipe Section -->
+    <section id="equipe" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="section-reveal">
-                    <div class="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                        <div class="w-full h-full bg-gray-300 flex items-center justify-center">
-                            <i class="fas fa-user text-gray-500 text-4xl"></i>
-                        </div>
-                    </div>
-                    
-                    <blockquote class="text-white text-xl md:text-2xl font-medium mb-8 leading-relaxed">
-                        "Notre mission est de former une génération de jeunes entrepreneurs chrétiens, 
-                        capables de transformer l'économie haïtienne par leurs compétences et leurs valeurs. 
-                        Chaque étudiant qui sort de CELI est un ambassadeur du changement."
-                    </blockquote>
-                    
-                    <cite class="text-blue-100 text-lg">
-                        <strong>Joël Nozé</strong> - Fondateur de CELI
-                    </cite>
-                    
-                    <div class="mt-8">
-                        <button class="bg-white text-gray-800 px-6 py-3 rounded-full font-semibold hover:shadow-xl transition-all">
-                            <i class="fas fa-book-open mr-2"></i>
-                            Lire son message
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Call to Action Section -->
-    <section class="py-20 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-display font-bold text-4xl md:text-5xl text-white mb-6">
-                    Rejoignez notre <span class="gradient-accent bg-clip-text text-transparent">communauté</span>
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Notre <span class="gradient-primary bg-clip-text text-transparent">Équipe</span>
                 </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Plusieurs façons de soutenir notre mission et de faire partie du changement
+                <div class="w-24 h-1 gradient-primary mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Une équipe dévouée à la promotion de la liberté économique chrétienne
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                <div class="section-reveal card-hover bg-gray-800 p-8 rounded-2xl text-center">
-                    <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-envelope text-white text-2xl"></i>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg gradient-primary flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <h3 class="font-bold text-xl text-white mb-4">📩 Newsletter</h3>
-                    <p class="text-gray-300 mb-6">Recevez nos actualités et événements</p>
-                    <button class="w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
-                        S'inscrire
-                    </button>
+                    <h3 class="font-bold text-xl text-gray-800 mb-1">Joël Nozé</h3>
+                    <p class="text-blue-600 font-medium mb-2">Directeur Général</p>
+                    <p class="text-gray-600 text-sm">
+                        Leader visionnaire avec 15 ans d'expérience en entrepreneuriat chrétien.
+                    </p>
                 </div>
                 
-                <div class="section-reveal card-hover bg-gray-800 p-8 rounded-2xl text-center">
-                    <div class="w-16 h-16 gradient-secondary rounded-xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-heart text-white text-2xl"></i>
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg gradient-primary flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <h3 class="font-bold text-xl text-white mb-4">🙏 Faire un don</h3>
-                    <p class="text-gray-300 mb-6">Soutenez notre mission éducative</p>
-                    <button class="w-full bg-pink-600 text-white py-3 rounded-full font-semibold hover:bg-pink-700 transition-colors">
-                        Donner
-                    </button>
+                    <h3 class="font-bold text-xl text-gray-800 mb-1">[Nom]</h3>
+                    <p class="text-blue-600 font-medium mb-2">Trésorier</p>
+                    <p class="text-gray-600 text-sm">
+                        Expert en gestion financière et investissements éthiques.
+                    </p>
                 </div>
                 
-                <div class="section-reveal card-hover bg-gray-800 p-8 rounded-2xl text-center">
-                    <div class="w-16 h-16 gradient-accent rounded-xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-calendar text-white text-2xl"></i>
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg gradient-primary flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <h3 class="font-bold text-xl text-white mb-4">📅 Événements</h3>
-                    <p class="text-gray-300 mb-6">Participez à nos activités</p>
-                    <button class="w-full bg-cyan-600 text-white py-3 rounded-full font-semibold hover:bg-cyan-700 transition-colors">
-                        Participer
-                    </button>
+                    <h3 class="font-bold text-xl text-gray-800 mb-1">[Nom]</h3>
+                    <p class="text-blue-600 font-medium mb-2">Secrétaire</p>
+                    <p class="text-gray-600 text-sm">
+                        Spécialiste en administration et gestion de projets.
+                    </p>
                 </div>
                 
-                <div class="section-reveal card-hover bg-gray-800 p-8 rounded-2xl text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-user-graduate text-white text-2xl"></i>
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg gradient-primary flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <h3 class="font-bold text-xl text-white mb-4">🎓 Devenir étudiant</h3>
-                    <p class="text-gray-300 mb-6">Commencez votre formation</p>
-                    <button class="w-full bg-orange-600 text-white py-3 rounded-full font-semibold hover:bg-orange-700 transition-colors">
-                        Candidater
+                    <h3 class="font-bold text-xl text-gray-800 mb-1">[Nom]</h3>
+                    <p class="text-blue-600 font-medium mb-2">Directeur des Programmes</p>
+                    <p class="text-gray-600 text-sm">
+                        Entrepreneur et formateur en économie solidaire.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto mt-12 bg-gray-50 p-8 rounded-xl">
+                <h3 class="font-bold text-xl text-gray-800 mb-4 text-center">Rejoindre notre Conseil d'Administration</h3>
+                <p class="text-gray-600 mb-6 text-center">
+                    Vous souhaitez contribuer à notre mission en tant que membre actif de notre gouvernance ?
+                </p>
+                <div class="text-center">
+                    <button class="gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Nous contacter
                     </button>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer class="bg-black text-white py-16">
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Logo & Description -->
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+                    Nous <span class="gradient-accent bg-clip-text text-transparent">Contacter</span>
+                </h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-xl text-blue-100">
+                    Prêt à rejoindre le mouvement pour une économie chrétienne libre et solidaire ?
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
                 <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center">
-                            <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    <h3 class="font-bold text-xl mb-6">Informations</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Adresse</h4>
+                                <p class="text-blue-100">#4, Anglade, Fermathe 45, Haïti</p>
+                            </div>
                         </div>
-                        <span class="font-display font-bold text-2xl">CELI</span>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-blue-100">info@cicle.org</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white mt-1">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Téléphone</h4>
+                                <p class="text-blue-100">+509 XX XX XX XX</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white mt-1">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Heures d'ouverture</h4>
+                                <p class="text-blue-100">Lundi-Vendredi: 8h-16h</p>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-300 mb-6">
-                        Former, Investir, Transformer - Une économie chrétienne libre et solidaire.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
-                            <i class="fab fa-youtube"></i>
-                        </a>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium mb-4">Suivez-nous</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Liens rapides -->
+                <div>
+                    <h3 class="font-bold text-xl mb-6">Envoyez-nous un message</h3>
+                    
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-blue-100 mb-1">Nom complet</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-blue-100 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-blue-100 mb-1">Sujet</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-blue-100 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all w-full">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
+                                                 <img src="logojojo-removebg-preview.png" alt="">
+
+                        </div>
+                        <span class="font-display font-bold text-xl">CICLE</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Centre des Investisseurs Chrétiens pour la Liberté Économique - Former, Investir, Transformer.
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        © 2025 CICLE. Tous droits réservés.
+                    </p>
+                </div>
+                
                 <div>
                     <h4 class="font-bold text-lg mb-6">Liens rapides</h4>
                     <div class="space-y-3">
-                        <a href="#" class="block text-gray-300 hover:text-white transition-colors">À propos</a>
-                        <a href="#" class="block text-gray-300 hover:text-white transition-colors">Formations</a>
-                        <a href="#" class="block text-gray-300 hover:text-white transition-colors">Programmes</a>
-                        <a href="#" class="block text-gray-300 hover:text-white transition-colors">Événements</a>
-                        <a href="#" class="block text-gray-300 hover:text-white transition-colors">Partenaires</a>
+                        <a href="#mission" class="block text-gray-400 hover:text-white transition-colors">Mission</a>
+                        <a href="#vision" class="block text-gray-400 hover:text-white transition-colors">Vision</a>
+                        <a href="#valeurs" class="block text-gray-400 hover:text-white transition-colors">Valeurs</a>
+                        <a href="#programmes" class="block text-gray-400 hover:text-white transition-colors">Programmes</a>
+                        <a href="#equipe" class="block text-gray-400 hover:text-white transition-colors">Équipe</a>
                     </div>
                 </div>
                 
-                <!-- Contact -->
                 <div>
-                    <h4 class="font-bold text-lg mb-6">Contact</h4>
+                    <h4 class="font-bold text-lg mb-6">Programmes</h4>
                     <div class="space-y-3">
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-map-marker-alt text-blue-400"></i>
-                            <span class="text-gray-300">Port-au-Prince, Haïti</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-phone text-blue-400"></i>
-                            <span class="text-gray-300">+509 XXXX-XXXX</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-envelope text-blue-400"></i>
-                            <span class="text-gray-300">info@celi.ht</span>
-                        </div>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Formations</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Accompagnement</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Réseautage</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Plaidoyer</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Projets à Impact</a>
                     </div>
                 </div>
                 
-                <!-- Newsletter -->
                 <div>
                     <h4 class="font-bold text-lg mb-6">Newsletter</h4>
-                    <p class="text-gray-300 mb-4">Restez informé de nos actualités</p>
-                    <div class="space-y-3">
-                        <input type="email" placeholder="Votre email" class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <button class="w-full btn-primary text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
-                            S'abonner
+                    <p class="text-gray-400 text-sm mb-4">
+                        Abonnez-vous pour recevoir nos dernières actualités et événements.
+                    </p>
+                    <div class="flex">
+                        <input type="email" placeholder="Votre email" class="flex-grow px-4 py-3 bg-gray-800 rounded-l-lg text-white focus:outline-none">
+                        <button class="gradient-primary text-white px-4 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-400">
-                    © 2025 CELI - Centre d'Entrepreneuriat et de Leadership Intégral. Tous droits réservés.
-                </p>
-            </div>
         </div>
     </footer>
-    
+
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden';
+        mobileMenu.innerHTML = `
+            <div class="text-center relative">
+                <button id="close-menu-btn" class="absolute top-4 right-4 text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="space-y-6">
+                    <a href="#mission" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Mission</a>
+                    <a href="#vision" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Vision</a>
+                    <a href="#valeurs" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Valeurs</a>
+                    <a href="#programmes" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Programmes</a>
+                    <a href="#equipe" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Équipe</a>
+                    <a href="#contact" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Contact</a>
+                    <button class="gradient-primary text-white px-8 py-3 rounded-lg font-semibold text-lg hover:shadow-xl transition-all mt-6">
+                        Devenir Membre
+                    </button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(mobileMenu);
         
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
+            mobileMenu.classList.remove('hidden');
         });
         
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
+        document.getElementById('close-menu-btn').addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
         });
         
         // Smooth scroll for anchor links
@@ -559,251 +736,35 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    mobileMenu.classList.add('hidden');
                 }
             });
         });
         
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        // Scroll reveal animation
+        const revealSections = () => {
+            const sections = document.querySelectorAll('.section-reveal');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('section-visible');
+                }
+            });
         };
         
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
         
-        // Observe all sections with reveal animation
-        document.querySelectorAll('.section-reveal').forEach(section => {
-            observer.observe(section);
-        });
-        
-        // Anime.js animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hero title animation
-            anime({
-                targets: '.hero-bg h1',
-                opacity: [0, 1],
-                translateY: [50, 0],
-                duration: 1200,
-                easing: 'easeOutExpo',
-                delay: 500
-            });
-            
-            // Hero subtitle animation
-            anime({
-                targets: '.hero-bg p',
-                opacity: [0, 1],
-                translateY: [30, 0],
-                duration: 1000,
-                easing: 'easeOutExpo',
-                delay: 800
-            });
-            
-            // Hero buttons animation
-            anime({
-                targets: '.hero-bg button',
-                opacity: [0, 1],
-                translateY: [20, 0],
-                duration: 800,
-                easing: 'easeOutExpo',
-                delay: 1100
-            });
-            
-            // Formation cards stagger animation
-            anime({
-                targets: '.section-reveal',
-                opacity: [0, 1],
-                translateY: [50, 0],
-                duration: 800,
-                easing: 'easeOutExpo',
-                delay: anime.stagger(100)
-            });
-            
-            // Floating elements animation
-            anime({
-                targets: '.floating',
-                translateY: [-20, 20],
-                duration: 3000,
-                easing: 'easeInOutSine',
-                direction: 'alternate',
-                loop: true
-            });
-        });
-        
-        // Header background on scroll
+        // Header shadow on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.9)';
-                header.style.backdropFilter = 'blur(20px)';
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.1)';
-                header.style.backdropFilter = 'blur(20px)';
-            }
-        });
-        
-        // Add hover effects to cards
-        document.querySelectorAll('.card-hover').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                anime({
-                    targets: this,
-                    scale: 1.02,
-                    translateY: -8,
-                    duration: 300,
-                    easing: 'easeOutCubic'
-                });
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                anime({
-                    targets: this,
-                    scale: 1,
-                    translateY: 0,
-                    duration: 300,
-                    easing: 'easeOutCubic'
-                });
-            });
-        });
-        
-        // Button click animations
-        document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Create ripple effect
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    pointer-events: none;
-                `;
-                
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-                
-                anime({
-                    targets: ripple,
-                    scale: 2,
-                    opacity: [1, 0],
-                    duration: 600,
-                    easing: 'easeOutExpo',
-                    complete: () => ripple.remove()
-                });
-            });
-        });
-        
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroElements = document.querySelectorAll('.floating');
-            
-            heroElements.forEach((element, index) => {
-                const speed = 0.5 + (index * 0.1);
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-        
-        // Newsletter form submission
-        document.querySelector('footer input[type="email"]').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                const email = this.value;
-                if (email) {
-                    // Simulate form submission
-                    anime({
-                        targets: this.nextElementSibling,
-                        scale: [1, 0.95, 1],
-                        duration: 200,
-                        complete: () => {
-                            alert('Merci pour votre inscription à notre newsletter !');
-                            this.value = '';
-                        }
-                    });
-                }
-            }
-        });
-        
-        // Add loading animation
-        window.addEventListener('load', () => {
-            anime({
-                targets: 'body',
-                opacity: [0, 1],
-                duration: 500,
-                easing: 'easeOutExpo'
-            });
-        });
-        
-        // Add scroll-to-top functionality
-        const scrollToTop = () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        };
-        
-        // Show/hide scroll to top button
-        window.addEventListener('scroll', () => {
-            const scrollButton = document.querySelector('.scroll-to-top');
-            if (window.scrollY > 500) {
-                if (scrollButton) {
-                    scrollButton.style.display = 'block';
-                }
-            } else {
-                if (scrollButton) {
-                    scrollButton.style.display = 'none';
-                }
-            }
-        });
-        
-        // Add performance optimization
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        
-        lazyImages.forEach(img => imageObserver.observe(img));
-        
-        // Add touch gestures for mobile
-        let startY = 0;
-        document.addEventListener('touchstart', e => {
-            startY = e.touches[0].clientY;
-        });
-        
-        document.addEventListener('touchmove', e => {
-            const currentY = e.touches[0].clientY;
-            const diff = startY - currentY;
-            
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                    // Scrolling up
-                    document.querySelector('header').style.transform = 'translateY(-100%)';
-                } else {
-                    // Scrolling down
-                    document.querySelector('header').style.transform = 'translateY(0)';
-                }
+                header.classList.remove('shadow-lg');
             }
         });
     </script>

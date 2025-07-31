@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CELI École Professionnelle - Former pour transformer</title>
+    <meta name="description" content="Des formations accessibles, humaines et impactantes pour les jeunes en quête d'avenir. École professionnelle chrétienne en Haïti.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        'celi-blue': '#1e40af',
+                        'celi-gold': '#f59e0b',
+                        'celi-green': '#059669',
+                        'celi-orange': '#ea580c'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom styles for enhanced UX */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(5, 150, 105, 0.8) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f3f4f6" width="1200" height="600"/><g fill="%23e5e7eb"><circle cx="200" cy="150" r="80"/><circle cx="800" cy="300" r="120"/><circle cx="1000" cy="100" r="60"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .clip-path-hero {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.3);
+        }
+        
+        .stats-counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .mobile-menu {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased bg-gray-50">
+    <!-- ===== HEADER STICKY ===== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-all duration-300" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                 <a href="#accueil">
+                <div class="flex items-center space-x-3 group">
+                <div class="w-20 h-10  rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                  <img src="image 1.png" class="w-35 h-20" alt="">
+                </div>
+                </a>
+            </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#accueil" class="text-gray-700 hover:text-celi-blue font-medium transition-colors">Accueil</a>
+                   
+                    <a href="#formations" class="text-gray-700 hover:text-celi-blue font-medium transition-colors">Formations</a>
+                    <a href="#resultats" class="text-gray-700 hover:text-celi-blue font-medium transition-colors">Résultats</a>
+                    <a href="#partenaires" class="text-gray-700 hover:text-celi-blue font-medium transition-colors">Partenaires</a>
+                    <a href="#actualites" class="text-gray-700 hover:text-celi-blue font-medium transition-colors">Actualités</a>
+                    <a href="#contact" class="text-gray-700 hover:text-celi-blue font-medium transition-colors">
+                        <i class="fas fa-phone mr-1"></i>Contact
+                    </a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="#contact" class="btn-primary text-white px-6 py-3 rounded-lg font-medium inline-flex items-center space-x-2">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>S'inscrire</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden mobile-menu fixed inset-0 top-16 translate-x-full transition-transform duration-300" id="mobile-menu">
+
+            <div class="p-6 bg-white space-y-6">
+                <nav class="space-y-4">
+                    <a href="#accueil" class="block text-gray-700 hover:text-celi-blue font-medium py-2">Accueil</a>
+                    
+                    <a href="#formations" class="block text-gray-700 hover:text-celi-blue font-medium py-2">Formations</a>
+                    <a href="#resultats" class="block text-gray-700 hover:text-celi-blue font-medium py-2">Résultats</a>
+                    <a href="#partenaires" class="block text-gray-700 hover:text-celi-blue font-medium py-2">Partenaires</a>
+                    <a href="#actualites" class="block text-gray-700 hover:text-celi-blue font-medium py-2">Actualités</a>
+                    <a href="#contact" class="block text-gray-700 hover:text-celi-blue font-medium py-2">Contact</a>
+                </nav>
+                <a href="#contact" class="btn-primary text-white px-6 py-3 rounded-lg font-medium inline-flex items-center space-x-2 w-full justify-center">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>S'inscrire</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="accueil" class="hero-bg clip-path-hero min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="animate-float absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full"></div>
+            <div class="animate-float absolute top-40 right-20 w-16 h-16 bg-white/10 rounded-full" style="animation-delay: -2s;"></div>
+            <div class="animate-float absolute bottom-40 left-1/4 w-12 h-12 bg-white/10 rounded-full" style="animation-delay: -4s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="animate-fade-in">
+                <h1 class="font-serif font-bold text-4xl sm:text-5xl lg:text-7xl text-white-700 mb-6 leading-tight">
+                    Former pour <span class="text-white block lg:inline">transformer</span>
+                </h1>
+                <h3 class="text-xl sm:text-2xl lg:text-3xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+                    Des formations accessibles, humaines et impactantes pour les jeunes en quête d'avenir.
+                </h3>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#formations" class="btn-primary text-white px-8 py-4 rounded-lg font-medium inline-flex items-center space-x-3 text-lg min-w-[240px] justify-center">
+                        <i class="fas fa-compass"></i>
+                        <span>Découvrir nos formations</span>
+                    </a>
+                    <a href="#contact" class="btn-secondary text-white px-8 py-4 rounded-lg font-medium inline-flex items-center space-x-3 text-lg min-w-[240px] justify-center">
+                        <i class="fas fa-heart"></i>
+                        <span>Soutenir notre mission</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#pourquoi-celi" class="text-white/70 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== POURQUOI CELI SECTION ===== -->
+    <section id="pourquoi-celi" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-6">
+                    Une école pour changer des vies
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Nous croyons en la transformation par l'éducation, guidée par nos valeurs chrétiennes et notre engagement envers l'excellence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-celi-blue to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-book-open text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-900 mb-4">Formations pratiques</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Des formations techniques orientées vers l'emploi et les besoins du marché haïtien.
+                    </p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-celi-gold to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-cross text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-900 mb-4">Ancrage chrétien & éthique</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Une formation humaine complète basée sur les valeurs chrétiennes et l'intégrité.
+                    </p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-celi-green to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-briefcase text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-900 mb-4">Insertion professionnelle</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Un accompagnement personnalisé vers l'emploi et l'entrepreneuriat.
+                    </p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-celi-orange to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-gray-900 mb-4">Focus jeunes vulnérables</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Une attention particulière aux jeunes en situation de précarité sociale et économique.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FORMATIONS SECTION ===== -->
+    <section id="formations" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-6">
+                    Nos formations techniques
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
+                    Découvrez nos programmes de formation adaptés aux besoins du marché du travail haïtien.
+                </p>
+
+                <!-- Search and Filters -->
+                <div class="max-w-4xl mx-auto mb-12">
+                    <div class="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-4">
+                        <div class="flex-1 w-full">
+                            <div class="relative">
+                                <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                <input type="text" placeholder="Rechercher une formation..." 
+                                       class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent"
+                                       id="formation-search">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center space-x-2">
+                            <select class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent" id="domaine-filter">
+                                <option value="">Tous les domaines</option>
+                                <option value="electricite">Électricité</option>
+                                <option value="couture">Couture</option>
+                                <option value="informatique">Informatique</option>
+                                <option value="mecanique">Mécanique</option>
+                            </select>
+                            <select class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent" id="duree-filter">
+                                <option value="">Toutes durées</option>
+                                <option value="court">Formation courte</option>
+                                <option value="long">Formation longue</option>
+                                <option value="seminaire">Séminaire</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="formations-grid">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="electricite" data-duree="long">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-bolt text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-xl text-gray-900">Électricité bâtiment</h3>
+                            <span class="bg-celi-blue/10 text-celi-blue px-3 py-1 rounded-full text-sm font-medium">Formation longue</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Formation complète en installation électrique résidentielle et commerciale, conforme aux normes internationales.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
+                                <i class="fas fa-download mr-2"></i>
+                                Télécharger la fiche
+                            </a>
+                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
+                                Préinscription
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="couture" data-duree="long">
+                    <div class="h-48 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+                        <i class="fas fa-cut text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-xl text-gray-900">Couture & Mode</h3>
+                            <span class="bg-celi-blue/10 text-celi-blue px-3 py-1 rounded-full text-sm font-medium">Formation longue</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Apprenez les techniques de couture moderne, création de patrons et entrepreneuriat dans la mode.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
+                                <i class="fas fa-download mr-2"></i>
+                                Télécharger la fiche
+                            </a>
+                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
+                                Préinscription
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="informatique" data-duree="court">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-xl text-gray-900">Bureautique & Web</h3>
+                            <span class="bg-celi-green/10 text-celi-green px-3 py-1 rounded-full text-sm font-medium">Formation courte</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Maîtrisez les outils bureautiques et les bases du développement web pour l'ère numérique.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
+                                <i class="fas fa-download mr-2"></i>
+                                Télécharger la fiche
+                            </a>
+                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
+                                Préinscription
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="mecanique" data-duree="long">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-wrench text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-xl text-gray-900">Mécanique auto</h3>
+                            <span class="bg-celi-blue/10 text-celi-blue px-3 py-1 rounded-full text-sm font-medium">Formation longue</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Formation pratique en mécanique automobile avec diagnostic moderne et réparation.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
+                                <i class="fas fa-download mr-2"></i>
+                                Télécharger la fiche
+                            </a>
+                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
+                                Préinscription
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="electricite" data-duree="seminaire">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
+                        <i class="fas fa-solar-panel text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-xl text-gray-900">Énergie solaire</h3>
+                            <span class="bg-celi-orange/10 text-celi-orange px-3 py-1 rounded-full text-sm font-medium">Séminaire</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Introduction aux systèmes solaires photovoltaïques et à l'énergie renouvelable.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
+                                <i class="fas fa-download mr-2"></i>
+                                Télécharger la fiche
+                            </a>
+                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
+                                Préinscription
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="couture" data-duree="seminaire">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-palette text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-xl text-gray-900">Design textile</h3>
+                            <span class="bg-celi-orange/10 text-celi-orange px-3 py-1 rounded-full text-sm font-medium">Séminaire</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Techniques avancées de design et personnalisation textile pour créateurs.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
+                                <i class="fas fa-download mr-2"></i>
+                                Télécharger la fiche
+                            </a>
+                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
+                                Préinscription
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATISTIQUES & TÉMOIGNAGES ===== -->
+    <section id="resultats" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-6">
+                    Un impact mesurable
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Nos résultats témoignent de l'efficacité de nos formations et de notre engagement envers nos étudiants.
+                </p>
+            </div>
+
+            <!-- Statistics -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-celi-blue to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <div class="stats-counter text-4xl lg:text-5xl font-bold text-gray-900 mb-2" data-target="350">0</div>
+                    <p class="text-xl text-gray-600 font-medium">Diplômés</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-celi-green to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-briefcase text-white text-2xl"></i>
+                    </div>
+                    <div class="stats-counter text-4xl lg:text-5xl font-bold text-gray-900 mb-2" data-target="68">0</div>
+                    <p class="text-xl text-gray-600 font-medium">% insérés professionnellement</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-celi-orange to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-white text-2xl"></i>
+                    </div>
+                    <div class="stats-counter text-4xl lg:text-5xl font-bold text-gray-900 mb-2" data-target="12">0</div>
+                    <p class="text-xl text-gray-600 font-medium">Entreprises partenaires</p>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="bg-gray-50 rounded-3xl p-8 lg:p-12">
+                <h3 class="font-serif font-semibold text-2xl lg:text-3xl text-gray-900 text-center mb-12">
+                    Témoignages de nos anciens étudiants
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-celi-blue to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-semibold">MC</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Marie-Claire</h4>
+                                <p class="text-sm text-gray-600">Formation Couture • Entrepreneuse</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-700 leading-relaxed italic">
+                            "Grâce à CELI, j'ai pu créer mon propre atelier de couture. Les formations sont pratiques et l'accompagnement exceptionnel. Aujourd'hui, j'emploie 3 personnes !"
+                        </blockquote>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-celi-green to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-semibold">JB</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Jean-Baptiste</h4>
+                                <p class="text-sm text-gray-600">Formation Électricité • Technicien</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-700 leading-relaxed italic">
+                            "La formation en électricité m'a ouvert de nombreuses portes. Je travaille maintenant dans une grande entreprise et je forme d'autres jeunes à mon tour."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARTENAIRES SECTION ===== -->
+    <section id="partenaires" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-6">
+                    Entreprises, ONG, mécènes : construisons ensemble
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Rejoignez notre réseau de partenaires engagés dans la transformation sociale par l'éducation.
+                </p>
+            </div>
+
+            <!-- Partnership Types -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 mb-3">Soutien matériel</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Équipements, outils et matériel pédagogique pour nos ateliers
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chalkboard-teacher text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 mb-3">Encadrement / Mentorat</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Expertise technique et accompagnement professionnel de nos étudiants
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-scholarship text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 mb-3">Financement de bourses</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Soutien financier pour les jeunes en situation de vulnérabilité
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user-tie text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 mb-3">Recrutement d'élèves formés</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Opportunités d'emploi et stages pour nos diplômés
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA and Form -->
+            <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-lg">
+                <div class="text-center mb-8">
+                    <div class="bg-celi-blue/10 inline-flex items-center px-6 py-3 rounded-full mb-4">
+                        <i class="fas fa-download text-celi-blue mr-2"></i>
+                        <span class="text-celi-blue font-medium">Téléchargez notre dossier de partenariat</span>
+                    </div>
+                </div>
+
+                <form class="max-w-2xl mx-auto space-y-6" id="partnership-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="partner-name" class="block text-sm font-medium text-gray-700 mb-2">Nom *</label>
+                            <input type="text" id="partner-name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="partner-org" class="block text-sm font-medium text-gray-700 mb-2">Organisation *</label>
+                            <input type="text" id="partner-org" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="partner-email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                        <input type="email" id="partner-email" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                    </div>
+
+                    <div>
+                        <label for="partner-subject" class="block text-sm font-medium text-gray-700 mb-2">Type de partenariat *</label>
+                        <select id="partner-subject" required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                            <option value="">Sélectionnez un type</option>
+                            <option value="materiel">Soutien matériel</option>
+                            <option value="mentorat">Encadrement / Mentorat</option>
+                            <option value="bourses">Financement de bourses</option>
+                            <option value="recrutement">Recrutement d'élèves</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="partner-message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                        <textarea id="partner-message" rows="4" 
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent"
+                                  placeholder="Décrivez votre projet de partenariat..."></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary text-white px-8 py-4 rounded-lg font-medium inline-flex items-center space-x-3">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Proposer un partenariat</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- ===== ACTUALITÉS SECTION ===== -->
+    <section id="actualites" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-6">
+                    Vie de l'école & événements
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Suivez l'actualité de CELI École et découvrez nos événements à venir.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <article class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gradient-to-br from-celi-blue to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-calendar-alt text-white text-3xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">15 Mars 2024</div>
+                        <h3 class="font-semibold text-xl text-gray-900 mb-3">Journée Portes Ouvertes</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Venez découvrir nos formations et rencontrer nos équipes lors de notre journée portes ouvertes.
+                        </p>
+                        <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
+                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gradient-to-br from-celi-green to-green-600 flex items-center justify-center">
+                        <i class="fas fa-trophy text-white text-3xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">10 Mars 2024</div>
+                        <h3 class="font-semibold text-xl text-gray-900 mb-3">Concours d'excellence</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Nos étudiants brillent au concours national des métiers techniques avec 3 médailles d'or.
+                        </p>
+                        <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
+                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="h-48 bg-gradient-to-br from-celi-orange to-red-600 flex items-center justify-center">
+                        <i class="fas fa-handshake text-white text-3xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">5 Mars 2024</div>
+                        <h3 class="font-semibold text-xl text-gray-900 mb-3">Nouveau partenariat</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Signature d'un accord de partenariat avec ElectroTech pour l'insertion de nos diplômés.
+                        </p>
+                        <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
+                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="text-center">
+                <a href="#" class="inline-flex items-center space-x-2 text-celi-blue hover:text-celi-blue/80 font-medium text-lg">
+                    <span>Voir toutes les actualités</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUOTE SECTION ===== -->
+    <section class="py-20 lg:py-32 bg-gradient-to-r from-celi-blue to-celi-green">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <blockquote class="text-white">
+                <p class="font-serif text-2xl lg:text-4xl font-medium leading-relaxed mb-8">
+                    "Former un jeune, c'est construire demain. Faites partie du changement."
+                </p>
+                <footer class="text-white/80 text-lg">
+                    — Vision CELI École Professionnelle
+                </footer>
+            </blockquote>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mt-12">
+                <a href="#formations" class="btn-primary bg-white text-white hover:bg-gray-100 px-8 py-4 rounded-lg font-medium inline-flex items-center space-x-3 text-lg min-w-[240px] justify-center">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Je m'inscris à une formation</span>
+                </a>
+                <a href="#partenaires"  class="btn-secondary hidden text-white px-8 py-4 rounded-lg font-medium inline-flex items-center space-x-3 text-lg min-w-[240px] justify-center">
+                    <i class="fas fa-heart"></i>
+                    <span>Je fais un don</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWSLETTER SECTION ===== -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-serif font-bold text-3xl lg:text-4xl text-gray-900 mb-4">
+                    Restez informé
+                </h2>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    Recevez nos actualités et opportunités de formation directement dans votre boîte mail.
+                </p>
+            </div>
+            
+            <form class="max-w-lg mx-auto" id="newsletter-form">
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <input type="email" id="newsletter-email" required 
+                           placeholder="Votre adresse email"
+                           class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                    <button type="submit" class="btn-primary text-white px-6 py-3 rounded-lg font-medium inline-flex items-center space-x-2 justify-center">
+                        <i class="fas fa-envelope"></i>
+                        <span>S'abonner</span>
+                    </button>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">
+                    Nous respectons votre vie privée. Désabonnement possible à tout moment.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-6">
+                    Contact & Préinscription
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Contactez-nous pour plus d'informations ou préinscrivez-vous dès maintenant.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Direct -->
+                <div class="bg-gray-50 rounded-3xl p-8">
+                    <h3 class="font-serif font-semibold text-2xl text-gray-900 mb-8">Contact direct</h3>
+                    
+                    <form class="space-y-6" id="contact-form">
+                        <div>
+                            <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Nom complet *</label>
+                            <input type="text" id="contact-name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                        </div>
+
+                        <div>
+                            <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="contact-email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                        </div>
+
+                        <div>
+                            <label for="contact-subject" class="block text-sm font-medium text-gray-700 mb-2">Objet *</label>
+                            <select id="contact-subject" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                                <option value="">Sélectionnez un objet</option>
+                                <option value="info-formations">Informations sur les formations</option>
+                                <option value="inscription">Inscription</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                            <textarea id="contact-message" rows="4" required 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent"
+                                      placeholder="Votre message..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-medium inline-flex items-center justify-center space-x-2">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Envoyer le message</span>
+                        </button>
+                    </form>
+
+                    <!-- Contact Info -->
+                    <div class="mt-12 pt-8 border-t border-gray-200">
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-map-marker-alt text-celi-blue w-5"></i>
+                                <span class="text-gray-700">Port-au-Prince, Haïti</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-phone text-celi-blue w-5"></i>
+                                <span class="text-gray-700">+509 XXXX-XXXX</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-envelope text-celi-blue w-5"></i>
+                                <span class="text-gray-700">contact@celiecole.ht</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Préinscription -->
+                <div class="bg-gradient-to-br from-celi-blue/5 to-celi-green/5 rounded-3xl p-8">
+                    <h3 class="font-serif font-semibold text-2xl text-gray-900 mb-8">Préinscription à une formation</h3>
+                    
+                    <form class="space-y-6" id="preinscription-form">
+                        <div>
+                            <label for="formation-choice" class="block text-sm font-medium text-gray-700 mb-2">Formation souhaitée *</label>
+                            <select id="formation-choice" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                                <option value="">Choisissez une formation</option>
+                                <option value="electricite">Électricité bâtiment</option>
+                                <option value="couture">Couture & Mode</option>
+                                <option value="informatique">Bureautique & Web</option>
+                                <option value="mecanique">Mécanique auto</option>
+                                <option value="solaire">Énergie solaire</option>
+                                <option value="textile">Design textile</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="prenom" class="block text-sm font-medium text-gray-700 mb-2">Prénom *</label>
+                                <input type="text" id="prenom" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="nom" class="block text-sm font-medium text-gray-700 mb-2">Nom *</label>
+                                <input type="text" id="nom" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="age" class="block text-sm font-medium text-gray-700 mb-2">Âge *</label>
+                                <input type="number" id="age" required min="16" max="50"
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="sexe" class="block text-sm font-medium text-gray-700 mb-2">Sexe *</label>
+                                <select id="sexe" required 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                                    <option value="">Sélectionnez</option>
+                                    <option value="M">Masculin</option>
+                                    <option value="F">Féminin</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="telephone" class="block text-sm font-medium text-gray-700 mb-2">Téléphone *</label>
+                                <input type="tel" id="telephone" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email-preinsc" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                                <input type="email" id="email-preinsc" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="niveau-scolaire" class="block text-sm font-medium text-gray-700 mb-2">Dernier niveau scolaire atteint *</label>
+                            <select id="niveau-scolaire" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                                <option value="">Sélectionnez votre niveau</option>
+                                <option value="primaire">Primaire</option>
+                                <option value="secondaire-1">Secondaire I (7e-9e)</option>
+                                <option value="secondaire-2">Secondaire II (10e-12e)</option>
+                                <option value="philo-rheto">Philo/Rhéto</option>
+                                <option value="universitaire">Universitaire</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="disponibilite" class="block text-sm font-medium text-gray-700 mb-2">Disponibilité préférée *</label>
+                            <select id="disponibilite" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent">
+                                <option value="">Choisissez votre disponibilité</option>
+                                <option value="jour">Journée (8h-16h)</option>
+                                <option value="soir">Soirée (17h-21h)</option>
+                                <option value="weekend">Weekend</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-medium inline-flex items-center justify-center space-x-2">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Envoyer ma demande</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Logo & Description -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-celi-blue to-celi-green rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">C</span>
+                        </div>
+                        <span class="font-serif font-semibold text-2xl">CELI École Professionnelle</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                        Former pour transformer. Des formations accessibles, humaines et impactantes pour les jeunes en quête d'avenir.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-celi-blue transition-colors">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-celi-blue transition-colors">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-celi-blue transition-colors">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-celi-blue transition-colors">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Contact</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-celi-blue w-5"></i>
+                            <span>Port-au-Prince, Haïti</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-celi-blue w-5"></i>
+                            <span>+509 XXXX-XXXX</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-celi-blue w-5"></i>
+                            <span>contact@celiecole.ht</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-whatsapp text-celi-green w-5"></i>
+                            <span>+509 XXXX-XXXX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Liens rapides</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#accueil" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#apropos" class="hover:text-white transition-colors">À propos</a></li>
+                        <li><a href="#formations" class="hover:text-white transition-colors">Formations</a></li>
+                        <li><a href="#resultats" class="hover:text-white transition-colors">Résultats</a></li>
+                        <li><a href="#partenaires" class="hover:text-white transition-colors">Partenaires</a></li>
+                        <li><a href="#actualites" class="hover:text-white transition-colors">Actualités</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+                    <div class="text-gray-400 text-sm">
+                        © 2025 CELI École Professionnelle. Tous droits réservés.
+                    </div>
+                    <div class="flex items-center space-x-6 text-sm text-gray-400">
+                        <a href="#" class="hover:text-white transition-colors">Mentions légales</a>
+                        <a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a>
+                        <a href="#" class="hover:text-white transition-colors">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== VARIABLES & DOM ELEMENTS =====
+        let isMenuOpen = false;
+        const header = document.getElementById('header');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // ===== HEADER SCROLL EFFECT =====
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white/98', 'shadow-lg');
+                header.classList.remove('bg-white/95');
+            } else {
+                header.classList.add('bg-white/95');
+                header.classList.remove('bg-white/98', 'shadow-lg');
+            }
+        });
+
+        // ===== MOBILE MENU TOGGLE =====
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times text-xl"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // ===== SMOOTH SCROLLING =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 80;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== STATS COUNTER ANIMATION =====
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+
+                    updateCounter();
+                    statsObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stats-counter').forEach(counter => {
+            statsObserver.observe(counter);
+        });
+
+        // ===== FORMATION SEARCH & FILTER =====
+        const searchInput = document.getElementById('formation-search');
+        const domaineFilter = document.getElementById('domaine-filter');
+        const dureeFilter = document.getElementById('duree-filter');
+        const formationCards = document.querySelectorAll('.formation-card');
+
+        function filterFormations() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const domaineValue = domaineFilter.value;
+            const dureeValue = dureeFilter.value;
+
+            formationCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const domaine = card.getAttribute('data-domaine');
+                const duree = card.getAttribute('data-duree');
+
+                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                const matchesDomaine = !domaineValue || domaine === domaineValue;
+                const matchesDuree = !dureeValue || duree === dureeValue;
+
+                if (matchesSearch && matchesDomaine && matchesDuree) {
+                    card.style.display = 'block';
+                    anime({
+                        targets: card,
+                        opacity: [0, 1],
+                        scale: [0.9, 1],
+                        duration: 300,
+                        easing: 'easeOutQuart'
+                    });
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterFormations);
+        domaineFilter.addEventListener('change', filterFormations);
+        dureeFilter.addEventListener('change', filterFormations);
+
+        // ===== FORM HANDLERS =====
+        
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Envoi en cours...</span>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i><span>Message envoyé !</span>';
+                submitBtn.classList.remove('btn-primary');
+                submitBtn.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add('btn-primary');
+                    submitBtn.classList.remove('bg-green-600');
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Preregistration Form
+        document.getElementById('preinscription-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Envoi en cours...</span>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i><span>Demande envoyée !</span>';
+                submitBtn.classList.remove('btn-primary');
+                submitBtn.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add('btn-primary');
+                    submitBtn.classList.remove('bg-green-600');
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Partnership Form
+        document.getElementById('partnership-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Envoi en cours...</span>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i><span>Proposition envoyée !</span>';
+                submitBtn.classList.remove('btn-primary');
+                submitBtn.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add('btn-primary');
+                    submitBtn.classList.remove('bg-green-600');
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Newsletter Form
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Abonnement...</span>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i><span>Abonné !</span>';
+                submitBtn.classList.remove('btn-primary');
+                submitBtn.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add('btn-primary');
+                    submitBtn.classList.remove('bg-green-600');
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // ===== ANIME.JS ANIMATIONS =====
+        
+        // Hero section animation
+        anime({
+            targets: '.animate-fade-in',
+            opacity: [0, 1],
+            translateY: [50, 0],
+            duration: 1200,
+            easing: 'easeOutQuart',
+            delay: 500
+        });
+
+        // Animate sections on scroll
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.card-hover, .formation-card, article');
+                    const features = entry.target.querySelectorAll('.group');
+                    
+                    if (cards.length > 0) {
+                        anime({
+                            targets: cards,
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            duration: 600,
+                            delay: anime.stagger(100),
+                            easing: 'easeOutQuart'
+                        });
+                    }
+                    
+                    if (features.length > 0) {
+                        anime({
+                            targets: features,
+                            opacity: [0, 1],
+                            translateY: [40, 0],
+                            duration: 800,
+                            delay: anime.stagger(150),
+                            easing: 'easeOutQuart'
+                        });
+                    }
+                    
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all main sections
+        document.querySelectorAll('section').forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Button hover animations
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                anime({
+                    targets: btn,
+                    scale: 1.05,
+                    duration: 200,
+                    easing: 'easeOutQuart'
+                });
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                anime({
+                    targets: btn,
+                    scale: 1,
+                    duration: 200,
+                    easing: 'easeOutQuart'
+                });
+            });
+        });
+
+        // ===== ACCESSIBILITY ENHANCEMENTS =====
+        
+        // Keyboard navigation for mobile menu
+        mobileMenuBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenuBtn.click();
+            }
+        });
+
+        // Focus management for forms
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', () => {
+                const firstInput = form.querySelector('input, select, textarea');
+                if (firstInput) {
+                    firstInput.focus();
+                }
+            });
+        });
+
+        // ===== PERFORMANCE OPTIMIZATIONS =====
+        
+        // Lazy loading for images (if any are added)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Preload critical resources
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap';
+        preloadLink.as = 'style';
+        document.head.appendChild(preloadLink);
+
+        console.log('🎓 CELI École Professionnelle - Template chargé avec succès !');
+    </script>
+</body>
+</html>

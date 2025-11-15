@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉLAN VISIONNAIRE - Connecter, Inspirer, Élever</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #d4af37;
+            --accent: #2d3748;
+            --light: #f7fafc;
+            --dark: #1a202c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 3s infinite alternate;
+        }
+        
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+            }
+        }
+        
+        .circle-expand {
+            clip-path: circle(0% at 50% 50%);
+            animation: circleExpand 1.5s ease forwards;
+        }
+        
+        @keyframes circleExpand {
+            to {
+                clip-path: circle(150% at 50% 50%);
+            }
+        }
+        
+        .slide-in-left {
+            transform: translateX(-100%);
+            animation: slideInLeft 1s ease forwards;
+        }
+        
+        @keyframes slideInLeft {
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in-right {
+            transform: translateX(100%);
+            animation: slideInRight 1s ease forwards;
+        }
+        
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        .scale-in {
+            transform: scale(0.8);
+            animation: scaleIn 1s ease forwards;
+        }
+        
+        @keyframes scaleIn {
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 55, 72, 0.8) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a365d"/><path d="M0 0L100 100M100 0L0 100" stroke="%23d4af37" stroke-width="1" opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .breathing-light {
+            animation: breathing 4s ease-in-out infinite;
+        }
+        
+        @keyframes breathing {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+            }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stagger-animation > * {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--secondary), transparent);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Opening Experience -->
+    <section id="opening" class="min-h-screen flex flex-col items-center justify-center hero-bg text-white relative overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-64 h-64 rounded-full breathing-light bg-gradient-to-r from-yellow-400 to-yellow-600 opacity-20"></div>
+        </div>
+        
+        <div class="text-center z-10 px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in">ÉLAN VISIONNAIRE</h1>
+            <p class="text-xl md:text-2xl mb-8 fade-in" style="animation-delay: 0.5s;">Connecter — Inspirer — Élever</p>
+            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto fade-in" style="animation-delay: 1s;">Bienvenue dans une communauté qui révèle votre potentiel.</p>
+            
+            <button id="enter-btn" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mb-8 fade-in" style="animation-delay: 1.5s;">
+                Entrer dans la vision
+            </button>
+        </div>
+        
+        <button id="skip-btn" class="absolute bottom-8 right-8 text-white opacity-70 hover:opacity-100 transition-opacity fade-in" style="animation-delay: 2s;">
+            Skip
+        </button>
+    </section>
+    
+    <!-- Onboarding -->
+    <section id="onboarding" class="min-h-screen bg-white py-16 px-4 hidden">
+        <div class="max-w-4xl mx-auto">
+            <!-- Étape 1 -->
+            <div id="step1" class="onboarding-step">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-hidden">Partagez-nous votre objectif</h2>
+                <p class="text-lg text-center text-gray-600 mb-12 max-w-2xl mx-auto section-hidden">Pour mieux vous accompagner dans votre appel et votre croissance.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 stagger-animation">
+                    <div class="card-hover bg-gray-50 p-6 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-seedling text-blue-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Grandir spirituellement</h3>
+                        <p class="text-gray-600">Approfondir votre relation avec Dieu et votre foi.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-6 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-briefcase text-green-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Développer ma carrière / mes compétences</h3>
+                        <p class="text-gray-600">Progresser professionnellement avec une vision chrétienne.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-6 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-rocket text-purple-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Lancer ou renforcer un projet</h3>
+                        <p class="text-gray-600">Donner vie à vos idées avec un accompagnement adapté.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-6 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-users text-red-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Trouver une communauté active</h3>
+                        <p class="text-gray-600">Rejoindre des croyants engagés et inspirants.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="onboarding-next bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                        Continuer
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Étape 2 -->
+            <div id="step2" class="onboarding-step hidden">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-hidden">Quel est votre domaine ou rôle principal ?</h2>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-12 stagger-animation">
+                    <div class="card-hover bg-gray-50 px-6 py-4 rounded-full border border-gray-200 cursor-pointer transition-all duration-300">
+                        Étudiant
+                    </div>
+                    <div class="card-hover bg-gray-50 px-6 py-4 rounded-full border border-gray-200 cursor-pointer transition-all duration-300">
+                        Entrepreneur
+                    </div>
+                    <div class="card-hover bg-gray-50 px-6 py-4 rounded-full border border-gray-200 cursor-pointer transition-all duration-300">
+                        Leader
+                    </div>
+                    <div class="card-hover bg-gray-50 px-6 py-4 rounded-full border border-gray-200 cursor-pointer transition-all duration-300">
+                        Pasteur
+                    </div>
+                    <div class="card-hover bg-gray-50 px-6 py-4 rounded-full border border-gray-200 cursor-pointer transition-all duration-300">
+                        Artiste
+                    </div>
+                    <div class="card-hover bg-gray-50 px-6 py-4 rounded-full border border-gray-200 cursor-pointer transition-all duration-300">
+                        Professionnel
+                    </div>
+                    <div class="card-hover bg-gray-50 px-6 py-4 rounded-full border border-gray-200 cursor-pointer transition-all duration-300">
+                        Enseignant
+                    </div>
+                    <div class="card-hover bg-gray-50 px-6 py-4 rounded-full border border-gray-200 cursor-pointer transition-all duration-300">
+                        Autre
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="onboarding-next bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                        Continuer
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Étape 3 -->
+            <div id="step3" class="onboarding-step hidden">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-hidden">Vos besoins actuels</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 stagger-animation">
+                    <div class="card-hover bg-gray-50 p-4 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user-graduate text-blue-500"></i>
+                        </div>
+                        <span>Trouver un mentor</span>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-4 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 flex items-center">
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-users text-green-500"></i>
+                        </div>
+                        <span>Rejoindre un groupe</span>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-4 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 flex items-center">
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hands-helping text-purple-500"></i>
+                        </div>
+                        <span>Obtenir de l'entraide</span>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-4 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 flex items-center">
+                        <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-graduation-cap text-yellow-500"></i>
+                        </div>
+                        <span>Me former</span>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-4 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 flex items-center">
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hand-holding-heart text-red-500"></i>
+                        </div>
+                        <span>Servir / aider les autres</span>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="onboarding-next bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                        Finaliser
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Étape 4 -->
+            <div id="step4" class="onboarding-step hidden">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-hidden">Votre parcours commence ici</h2>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl mb-8 section-hidden">
+                    <h3 class="text-xl font-semibold mb-4">Vos objectifs</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Développement spirituel approfondi</li>
+                        <li>Réseautage avec des professionnels partageant vos valeurs</li>
+                        <li>Accès à des ressources de formation adaptées</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-8 rounded-2xl mb-12 section-hidden">
+                    <h3 class="text-xl font-semibold mb-4">Vos recommandations initiales</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Groupe de prière "Professionnels en Christ"</li>
+                        <li>Formation "Leadership serviteur"</li>
+                        <li>Mentorat avec Jean Dupont, entrepreneur chrétien</li>
+                    </ul>
+                </div>
+                
+                <div class="text-center">
+                    <button id="dashboard-btn" class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                        Accéder à mon tableau de bord
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm hidden">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+               
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">Accueil</a>
+                <a href="#community" class="text-gray-700 hover:text-blue-600 transition-colors">Communauté</a>
+                <a href="#help" class="text-gray-700 hover:text-blue-600 transition-colors">Entraide</a>
+                <a href="#resources" class="text-gray-700 hover:text-blue-600 transition-colors">Ressources</a>
+                <a href="#projects" class="text-gray-700 hover:text-blue-600 transition-colors">Projets</a>
+                <a href="#events" class="text-gray-700 hover:text-blue-600 transition-colors">Événements</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="text-gray-700 hover:text-blue-600 transition-colors">Connexion</button>
+                <button class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full font-medium shadow hover:shadow-md transition-all">
+                    Créer un compte
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page d'accueil -->
+    <main id="home" class="hidden">
+        <!-- Hero Section -->
+        <section class="pt-24 pb-20 hero-bg text-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 section-hidden">Une plateforme pour grandir et avoir de l'impact.</h1>
+                    <p class="text-xl md:text-2xl mb-8 section-hidden">Réseau, mentorat, ressources et opportunités pour croyants engagés.</p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12 stagger-animation">
+                        <button class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            Rejoindre la communauté
+                        </button>
+                        <button class="bg-white text-blue-800 px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            Explorer la plateforme
+                        </button>
+                    </div>
+                    
+                    <p class="text-lg italic section-hidden">"Ceux qui se confient en l'Éternel renouvellent leur force."</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Valeurs Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 section-hidden">Nos Valeurs Fondamentales</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card-hover bg-gray-50 p-8 rounded-2xl text-center section-hidden">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-pray text-blue-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Foi Active</h3>
+                        <p class="text-gray-600">Vivre sa foi concrètement dans tous les aspects de la vie.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-8 rounded-2xl text-center section-hidden">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-handshake text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Coopération</h3>
+                        <p class="text-gray-600">Travailler ensemble pour un impact plus grand.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-8 rounded-2xl text-center section-hidden">
+                        <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-award text-purple-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Excellence</h3>
+                        <p class="text-gray-600">Donner le meilleur de nous-mêmes en toute chose.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-8 rounded-2xl text-center section-hidden">
+                        <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-heart text-red-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Intégrité & Service</h3>
+                        <p class="text-gray-600">Vivre avec authenticité et servir avec amour.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Divider -->
+        <div class="section-divider"></div>
+        
+        <!-- Les 4 Piliers -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 section-hidden">Les 4 Piliers d'Élan Visionnaire</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="card-hover bg-white p-8 rounded-2xl shadow-sm section-hidden">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-network-wired text-blue-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Réseautage Ciblé</h3>
+                        <p class="text-gray-600 mb-6">Rencontrez ceux qui partagent votre vision et vos valeurs pour des collaborations fructueuses.</p>
+                        <button class="text-blue-600 font-semibold flex items-center">
+                            Explorer <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-8 rounded-2xl shadow-sm section-hidden">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-hands-helping text-green-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Entraide & Mentorat</h3>
+                        <p class="text-gray-600 mb-6">Bénéficiez d'un soutien authentique entre croyants et progressez avec des mentors expérimentés.</p>
+                        <button class="text-blue-600 font-semibold flex items-center">
+                            Accéder <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-8 rounded-2xl shadow-sm section-hidden">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-graduation-cap text-purple-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Ressources & Formations</h3>
+                        <p class="text-gray-600 mb-6">Accédez à des formations spirituelles et professionnelles de qualité pour votre développement.</p>
+                        <button class="text-blue-600 font-semibold flex items-center">
+                            Découvrir <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-8 rounded-2xl shadow-sm section-hidden">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-lightbulb text-yellow-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Incubation de Projets</h3>
+                        <p class="text-gray-600 mb-6">Développez vos initiatives à impact avec un accompagnement sur mesure et des ressources adaptées.</p>
+                        <button class="text-blue-600 font-semibold flex items-center">
+                            Voir les projets <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Divider -->
+        <div class="section-divider"></div>
+        
+        <!-- Community Spotlight -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-hidden">Ils transforment leur vision en réalité</h2>
+                <p class="text-xl text-center text-gray-600 mb-16 max-w-2xl mx-auto section-hidden">Découvrez les témoignages et projets de notre communauté</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div class="card-hover bg-gray-50 p-6 rounded-2xl section-hidden">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Marie L.</h4>
+                                <p class="text-gray-500 text-sm">Entrepreneure</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"Grâce au mentorat, j'ai lancé mon entreprise avec une vision claire et des valeurs chrétiennes solides."</p>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-6 rounded-2xl section-hidden">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Thomas D.</h4>
+                                <p class="text-gray-500 text-sm">Développeur</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"La communauté m'a aidé à trouver un équilibre entre ma foi et ma carrière technique. Je me sens épanoui."</p>
+                    </div>
+                    
+                    <div class="card-hover bg-gray-50 p-6 rounded-2xl section-hidden">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Sarah K.</h4>
+                                <p class="text-gray-500 text-sm">Enseignante</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"Les ressources de formation m'ont permis de développer un programme éducatif basé sur des valeurs chrétiennes."</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                        Voir plus de témoignages
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Final -->
+        <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 section-hidden">Prêt à rejoindre un mouvement d'impact ?</h2>
+                <p class="text-xl mb-12 max-w-2xl mx-auto section-hidden">Rejoignez des milliers de croyants engagés qui transforment leur vision en réalité.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 stagger-animation">
+                    <button class="bg-white text-blue-800 px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                        Je crée mon compte
+                    </button>
+                    <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                        Je me connecte
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ÉLAN VISIONNAIRE</h3>
+                    <p class="text-gray-400">Connecter, Inspirer, Élever une génération de croyants engagés.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">À propos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Vision & mission</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Équipe</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Ressources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Formations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Événements</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partenariats</a></li>
+                        <li class="flex space-x-4 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Élan Visionnaire. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Configuration de Tailwind
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a365d',
+                        secondary: '#d4af37',
+                        accent: '#2d3748',
+                        light: '#f7fafc',
+                        dark: '#1a202c',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+        
+        // Variables globales
+        let currentStep = 1;
+        const totalSteps = 4;
+        
+        // Initialisation des animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation d'ouverture
+            animateOpening();
+            
+            // Configuration des écouteurs d'événements
+            document.getElementById('enter-btn').addEventListener('click', enterOnboarding);
+            document.getElementById('skip-btn').addEventListener('click', skipToHome);
+            document.getElementById('dashboard-btn').addEventListener('click', goToDashboard);
+            
+            // Navigation onboarding
+            document.querySelectorAll('.onboarding-next').forEach(button => {
+                button.addEventListener('click', nextStep);
+            });
+            
+            // Animation au scroll
+            initScrollAnimations();
+        });
+        
+        // Animation d'ouverture
+        function animateOpening() {
+            anime({
+                targets: '.fade-in',
+                opacity: [0, 1],
+                translateY: [30, 0],
+                delay: anime.stagger(200),
+                duration: 1000,
+                easing: 'easeOutQuad'
+            });
+            
+            // Animation du halo lumineux
+            anime({
+                targets: '.breathing-light',
+                scale: [1, 1.1, 1],
+                opacity: [0.2, 0.4, 0.2],
+                duration: 4000,
+                loop: true,
+                easing: 'easeInOutSine'
+            });
+        }
+        
+        // Entrer dans l'onboarding
+        function enterOnboarding() {
+            // Animation de transition
+            anime({
+                targets: '#opening',
+                opacity: 0,
+                translateY: -50,
+                duration: 800,
+                easing: 'easeInOutQuad',
+                complete: function() {
+                    document.getElementById('opening').style.display = 'none';
+                    document.getElementById('onboarding').classList.remove('hidden');
+                    
+                    // Animation d'entrée de l'onboarding
+                    anime({
+                        targets: '#onboarding',
+                        opacity: [0, 1],
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    });
+                    
+                    // Animation de la première étape
+                    animateStep(1);
+                }
+            });
+        }
+        
+        // Passer directement à l'accueil
+        function skipToHome() {
+            anime({
+                targets: '#opening',
+                opacity: 0,
+                translateY: -50,
+                duration: 800,
+                easing: 'easeInOutQuad',
+                complete: function() {
+                    document.getElementById('opening').style.display = 'none';
+                    document.getElementById('main-header').classList.remove('hidden');
+                    document.getElementById('home').classList.remove('hidden');
+                    
+                    // Animation d'entrée de l'accueil
+                    anime({
+                        targets: '#home',
+                        opacity: [0, 1],
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    });
+                    
+                    // Animation des sections
+                    animateSections();
+                }
+            });
+        }
+        
+        // Aller au tableau de bord
+        function goToDashboard() {
+            anime({
+                targets: '#onboarding',
+                opacity: 0,
+                translateY: -50,
+                duration: 800,
+                easing: 'easeInOutQuad',
+                complete: function() {
+                    document.getElementById('onboarding').style.display = 'none';
+                    document.getElementById('main-header').classList.remove('hidden');
+                    document.getElementById('home').classList.remove('hidden');
+                    
+                    // Animation d'entrée de l'accueil
+                    anime({
+                        targets: '#home',
+                        opacity: [0, 1],
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    });
+                    
+                    // Animation des sections
+                    animateSections();
+                }
+            });
+        }
+        
+        // Étape suivante dans l'onboarding
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                // Animation de sortie de l'étape actuelle
+                anime({
+                    targets: `#step${currentStep}`,
+                    opacity: 0,
+                    translateX: -50,
+                    duration: 500,
+                    easing: 'easeInOutQuad',
+                    complete: function() {
+                        document.getElementById(`step${currentStep}`).classList.add('hidden');
+                        currentStep++;
+                        document.getElementById(`step${currentStep}`).classList.remove('hidden');
+                        
+                        // Animation d'entrée de la nouvelle étape
+                        animateStep(currentStep);
+                    }
+                });
+            }
+        }
+        
+        // Animation d'une étape de l'onboarding
+        function animateStep(step) {
+            // Animation du titre
+            anime({
+                targets: `#step${step} .section-hidden`,
+                opacity: [0, 1],
+                translateY: [30, 0],
+                delay: anime.stagger(100),
+                duration: 800,
+                easing: 'easeOutQuad'
+            });
+            
+            // Animation des éléments en cascade
+            anime({
+                targets: `#step${step} .stagger-animation > *`,
+                opacity: [0, 1],
+                translateY: [20, 0],
+                delay: anime.stagger(100),
+                duration: 600,
+                easing: 'easeOutQuad'
+            });
+        }
+        
+        // Initialisation des animations au scroll
+        function initScrollAnimations() {
+            // Créer un observer pour les animations au scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        
+                        // Animation spécifique pour les cartes
+                        if (entry.target.classList.contains('card-hover')) {
+                            anime({
+                                targets: entry.target,
+                                translateY: [30, 0],
+                                opacity: [0, 1],
+                                duration: 800,
+                                easing: 'easeOutQuad'
+                            });
+                        }
+                        
+                        // Animation pour les titres de section
+                        if (entry.target.classList.contains('section-hidden')) {
+                            anime({
+                                targets: entry.target,
+                                translateY: [50, 0],
+                                opacity: [0, 1],
+                                duration: 1000,
+                                easing: 'easeOutQuad'
+                            });
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            // Observer les éléments à animer
+            document.querySelectorAll('.section-hidden, .card-hover').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        // Animation des sections de la page d'accueil
+        function animateSections() {
+            // Animation du hero
+            anime({
+                targets: '#home .section-hidden',
+                opacity: [0, 1],
+                translateY: [50, 0],
+                delay: anime.stagger(200),
+                duration: 1000,
+                easing: 'easeOutQuad'
+            });
+            
+            // Animation des cartes en cascade
+            anime({
+                targets: '.stagger-animation > *',
+                opacity: [0, 1],
+                translateY: [30, 0],
+                delay: anime.stagger(100),
+                duration: 800,
+                easing: 'easeOutQuad'
+            });
+        }
+    </script>
+</body>
+</html>

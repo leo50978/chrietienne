@@ -57,9 +57,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         
-        .clip-path-hero {
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
+        
         
         .animate-float {
             animation: float 6s ease-in-out infinite;
@@ -269,194 +267,706 @@
     </section>
 
     <!-- ===== FORMATIONS SECTION ===== -->
-    <section id="formations" class="py-20 lg:py-32 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-6">
-                    Nos formations techniques
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-                    Découvrez nos programmes de formation adaptés aux besoins du marché du travail haïtien.
-                </p>
+   <!-- Section Formations (Version mise à jour avec les informations fournies) -->
+<section id="formations" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- En-tête amélioré -->
+        <div class="text-center mb-16 fade-in-up">
+            <span class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">
+                Nos Programmes
+            </span>
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Formations <span class="text-blue-600">Professionnelles</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Développez vos compétences pratiques avec nos formations spécialisées conçues pour vous préparer aux métiers techniques et artisanaux.
+            </p>
+        </div>
 
-                <!-- Search and Filters -->
-                <div class="max-w-4xl mx-auto mb-12">
-                    <div class="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-4">
-                        <div class="flex-1 w-full">
-                            <div class="relative">
-                                <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                                <input type="text" placeholder="Rechercher une formation..." 
-                                       class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent"
-                                       id="formation-search">
-                            </div>
+        <!-- Grille de formations mises à jour -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Formation 1 : Coupe & couture -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up relative transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-gray-100">
+                <!-- Badge de popularité -->
+                <div class="absolute top-4 right-4 z-10">
+                    <span class="px-3 py-1 bg-gradient-to-r from-pink-500 to-pink-600 text-white text-xs font-semibold rounded-full shadow-md">
+                        Créatif
+                    </span>
+                </div>
+                
+                <!-- Zone image améliorée -->
+                <div class="h-56 relative overflow-hidden bg-gradient-to-br from-pink-50 to-rose-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-20 h-20 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </div>
+                    <div class="absolute bottom-4 left-4 z-20">
+                        <span class="inline-flex items-center px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-medium rounded-full">
+                            <svg class="w-3 h-3 mr-1 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            4.8/5
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Contenu amélioré -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-display text-xl font-bold text-gray-900">
+                            Coupe & Couture
+                        </h3>
+                        <span class="text-xs font-medium px-2 py-1 bg-pink-100 text-pink-700 rounded-full">Débutant</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Apprenez les techniques de base de la couture, le patronage, la prise de mesures et la confection de vêtements simples.
+                    </p>
+                    
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>1 an</span>
+                        <span class="mx-2">•</span>
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span>Certifiée</span>
+                    </div>
+
+                    <!-- Bouton Voir Détail -->
+                    <button 
+                        class="modal-open w-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-3 flex items-center justify-center"
+                        data-title="Détails de la Formation Coupe & Couture"
+                        data-content='
+                            <p><strong>Devenez un professionnel de la couture avec notre formation complète ! ✂️👗</strong></p>
+                            <p>Cette formation d&rsquo;un an vous enseignera toutes les compétences essentielles pour maîtriser l&rsquo;art de la couture.</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>✅ Techniques de base : Points à la main et à la machine</li>
+                                <li>✅ Patronage : Création et adaptation de patrons</li>
+                                <li>✅ Confection : Réalisation de vêtements simples</li>
+                                <li>✅ Choix des tissus et fournitures</li>
+                            </ul>
+                            <p><strong>À qui s&rsquo;adresse cette formation ?</strong><br>
+                            Débutants souhaitant acquérir des compétences en couture pour usage personnel ou professionnel.</p>
+                            <p><strong>Inscrivez-vous maintenant !</strong></p>
+                            
+                            <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Inscription
+                            </button>
+                        '>
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Voir les détails
+                    </button>
+
+                    <!-- Bouton Prix Principal -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900">25 000 Gdes</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">30 000 Gdes</span>
                         </div>
-                        <div class="flex flex-wrap items-center space-x-2">
-                            <select class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent" id="domaine-filter">
-                                <option value="">Tous les domaines</option>
-                                <option value="electricite">Électricité</option>
-                                <option value="couture">Couture</option>
-                                <option value="informatique">Informatique</option>
-                                <option value="mecanique">Mécanique</option>
-                            </select>
-                            <select class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-celi-blue focus:border-transparent" id="duree-filter">
-                                <option value="">Toutes durées</option>
-                                <option value="court">Formation courte</option>
-                                <option value="long">Formation longue</option>
-                                <option value="seminaire">Séminaire</option>
-                            </select>
-                        </div>
+                        <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Inscription
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Formation Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="formations-grid">
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="electricite" data-duree="long">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                        <i class="fas fa-bolt text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-semibold text-xl text-gray-900">Électricité bâtiment</h3>
-                            <span class="bg-celi-blue/10 text-celi-blue px-3 py-1 rounded-full text-sm font-medium">Formation longue</span>
-                        </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Formation complète en installation électrique résidentielle et commerciale, conforme aux normes internationales.
-                        </p>
-                        <div class="flex items-center space-x-4">
-                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
-                                <i class="fas fa-download mr-2"></i>
-                                Télécharger la fiche
-                            </a>
-                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
-                                Préinscription
-                            </a>
-                        </div>
+            <!-- Formation 2 : Haute couture -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up relative transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-gray-100">
+                <!-- Badge de popularité -->
+                <div class="absolute top-4 right-4 z-10">
+                    <span class="px-3 py-1 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xs font-semibold rounded-full shadow-md">
+                        Expert
+                    </span>
+                </div>
+                
+                <!-- Zone image améliorée -->
+                <div class="h-56 relative overflow-hidden bg-gradient-to-br from-purple-50 to-indigo-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-20 h-20 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                        </svg>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="couture" data-duree="long">
-                    <div class="h-48 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
-                        <i class="fas fa-cut text-white text-4xl"></i>
+                <!-- Contenu amélioré -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-display text-xl font-bold text-gray-900">
+                            Haute Couture
+                        </h3>
+                        <span class="text-xs font-medium px-2 py-1 bg-purple-100 text-purple-700 rounded-full">Avancé</span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-semibold text-xl text-gray-900">Couture & Mode</h3>
-                            <span class="bg-celi-blue/10 text-celi-blue px-3 py-1 rounded-full text-sm font-medium">Formation longue</span>
+                    
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Perfectionnez votre art avec des techniques avancées de couture, broderie, création de vêtements sur mesure et gestion d'atelier.
+                    </p>
+                    
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>3 ans</span>
+                        <span class="mx-2">•</span>
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span>Diplômante</span>
+                    </div>
+
+                    <!-- Bouton Voir Détail -->
+                    <button 
+                        class="modal-open w-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-3 flex items-center justify-center"
+                        data-title="Détails de la Formation Haute Couture"
+                        data-content='
+                            <p><strong>Devenez un artisan de la mode avec notre formation de haute couture ! 👑🧵</strong></p>
+                            <p>Formation approfondie de 3 ans pour maîtriser les techniques les plus avancées de la couture professionnelle.</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>✅ Techniques de coupe et montage complexes</li>
+                                <li>✅ Broderie et embellissements</li>
+                                <li>✅ Création de vêtements sur mesure</li>
+                                <li>✅ Gestion d&rsquo;atelier et relation client</li>
+                                <li>✅ Design et création de collections</li>
+                            </ul>
+                            <p><strong>Débouchés :</strong><br>
+                            Créateur indépendant, couturier en atelier, styliste, costumier pour le théâtre ou le cinéma.</p>
+                            <p><strong>Inscrivez-vous maintenant !</strong></p>
+                            
+                            <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Inscription
+                            </button>
+                        '>
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Voir les détails
+                    </button>
+
+                    <!-- Bouton Prix Principal -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900">45 000 Gdes/an</span>
                         </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Apprenez les techniques de couture moderne, création de patrons et entrepreneuriat dans la mode.
-                        </p>
-                        <div class="flex items-center space-x-4">
-                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
-                                <i class="fas fa-download mr-2"></i>
-                                Télécharger la fiche
-                            </a>
-                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
-                                Préinscription
-                            </a>
-                        </div>
+                        <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Inscription
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation 3 : Ferronnerie -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up relative transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-gray-100">
+                <!-- Zone image améliorée -->
+                <div class="h-56 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-200">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-20 h-20 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
+                        </svg>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="informatique" data-duree="court">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                        <i class="fas fa-laptop-code text-white text-4xl"></i>
+                <!-- Contenu amélioré -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-display text-xl font-bold text-gray-900">
+                            Ferronnerie
+                        </h3>
+                        <span class="text-xs font-medium px-2 py-1 bg-gray-100 text-gray-700 rounded-full">Intermédiaire</span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-semibold text-xl text-gray-900">Bureautique & Web</h3>
-                            <span class="bg-celi-green/10 text-celi-green px-3 py-1 rounded-full text-sm font-medium">Formation courte</span>
+                    
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Apprenez les techniques de forge, soudure et travail du métal pour créer des éléments décoratifs et fonctionnels en fer forgé.
+                    </p>
+                    
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>1 an</span>
+                        <span class="mx-2">•</span>
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span>Certifiée</span>
+                    </div>
+
+                    <!-- Bouton Voir Détail -->
+                    <button 
+                        class="modal-open w-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-3 flex items-center justify-center"
+                        data-title="Détails de la Formation Ferronnerie"
+                        data-content='
+                            <p><strong>Devenez un artisan du métal avec notre formation en ferronnerie ! 🔨🔥</strong></p>
+                            <p>Maîtrisez les techniques ancestrales et modernes du travail du fer forgé.</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>✅ Techniques de forge et de modelage</li>
+                                <li>✅ Soudure et assemblage</li>
+                                <li>✅ Création de portails, garde-corps, meubles</li>
+                                <li>✅ Finitions et traitements anti-corrosion</li>
+                            </ul>
+                            <p><strong>Équipement fourni :</strong><br>
+                            Forge, enclumes, postes à souder et tout l&rsquo;équipement de sécurité nécessaire.</p>
+                            <p><strong>Inscrivez-vous maintenant !</strong></p>
+                            
+                            <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Inscription
+                            </button>
+                        '>
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Voir les détails
+                    </button>
+
+                    <!-- Bouton Prix Principal -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900">28 000 Gdes</span>
                         </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Maîtrisez les outils bureautiques et les bases du développement web pour l'ère numérique.
-                        </p>
-                        <div class="flex items-center space-x-4">
-                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
-                                <i class="fas fa-download mr-2"></i>
-                                Télécharger la fiche
-                            </a>
-                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
-                                Préinscription
-                            </a>
-                        </div>
+                        <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Inscription
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation 4 : Technique Windows (fenêtres aluminium/verre) -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up relative transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-gray-100">
+                <!-- Badge de popularité -->
+                <div class="absolute top-4 right-4 z-10">
+                    <span class="px-3 py-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs font-semibold rounded-full shadow-md">
+                        Pratique
+                    </span>
+                </div>
+                
+                <!-- Zone image améliorée -->
+                <div class="h-56 relative overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-20 h-20 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="mecanique" data-duree="long">
-                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                        <i class="fas fa-wrench text-white text-4xl"></i>
+                <!-- Contenu amélioré -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-display text-xl font-bold text-gray-900">
+                            Fenêtres Aluminium/Verre
+                        </h3>
+                        <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-blue-700 rounded-full">Débutant</span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-semibold text-xl text-gray-900">Mécanique auto</h3>
-                            <span class="bg-celi-blue/10 text-celi-blue px-3 py-1 rounded-full text-sm font-medium">Formation longue</span>
+                    
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Apprenez la pose, l'installation et l'entretien de fenêtres en aluminium et verre, ainsi que les techniques d'isolation.
+                    </p>
+                    
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>6 mois</span>
+                        <span class="mx-2">•</span>
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span>Certifiée</span>
+                    </div>
+
+                    <!-- Bouton Voir Détail -->
+                    <button 
+                        class="modal-open w-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-3 flex items-center justify-center"
+                        data-title="Détails de la Formation Fenêtres Aluminium/Verre"
+                        data-content='
+                            <p><strong>Devenez un spécialiste des menuiseries aluminium et verre ! 🪟🔧</strong></p>
+                            <p>Formation intensive de 6 mois pour maîtriser les techniques de pose et d&rsquo;installation des fenêtres modernes.</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>✅ Prise de mesures et calculs</li>
+                                <li>✅ Techniques de pose et d&rsquo;étanchéité</li>
+                                <li>✅ Installation des systèmes d&rsquo;ouverture</li>
+                                <li>✅ Entretien et réparation</li>
+                                <li>✅ Normes de sécurité et isolation</li>
+                            </ul>
+                            <p><strong>Débouchés immédiats :</strong><br>
+                            Poseur de fenêtres, technicien en menuiserie aluminium, artisan indépendant.</p>
+                            <p><strong>Inscrivez-vous maintenant !</strong></p>
+                            
+                            <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Inscription
+                            </button>
+                        '>
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Voir les détails
+                    </button>
+
+                    <!-- Bouton Prix Principal -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900">18 000 Gdes</span>
                         </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Formation pratique en mécanique automobile avec diagnostic moderne et réparation.
-                        </p>
-                        <div class="flex items-center space-x-4">
-                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
-                                <i class="fas fa-download mr-2"></i>
-                                Télécharger la fiche
-                            </a>
-                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
-                                Préinscription
-                            </a>
-                        </div>
+                        <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Inscription
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation 5 : Auto-école -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up relative transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-gray-100">
+                <!-- Zone image améliorée -->
+                <div class="h-56 relative overflow-hidden bg-gradient-to-br from-red-50 to-orange-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-20 h-20 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="electricite" data-duree="seminaire">
-                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
-                        <i class="fas fa-solar-panel text-white text-4xl"></i>
+                <!-- Contenu amélioré -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-display text-xl font-bold text-gray-900">
+                            Auto-école
+                        </h3>
+                        <span class="text-xs font-medium px-2 py-1 bg-red-100 text-red-700 rounded-full">Tous niveaux</span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-semibold text-xl text-gray-900">Énergie solaire</h3>
-                            <span class="bg-celi-orange/10 text-celi-orange px-3 py-1 rounded-full text-sm font-medium">Séminaire</span>
+                    
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Formation complète pour obtenir votre permis de conduire, avec cours théoriques, pratiques et préparation à l'examen officiel.
+                    </p>
+                    
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>3 mois</span>
+                        <span class="mx-2">•</span>
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>Officielle</span>
+                    </div>
+
+                    <!-- Bouton Voir Détail -->
+                    <button 
+                        class="modal-open w-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-3 flex items-center justify-center"
+                        data-title="Détails de la Formation Auto-école"
+                        data-content='
+                            <p><strong>Obtenez votre permis de conduire en 3 mois ! 🚗📜</strong></p>
+                            <p>Formation accélérée pour décrocher votre permis de conduire avec un taux de réussite élevé.</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>✅ Cours de code de la route</li>
+                                <li>✅ 20 heures de conduite minimum</li>
+                                <li>✅ Véhicules modernes et sécurisés</li>
+                                <li>✅ Préparation aux examens théorique et pratique</li>
+                                <li>✅ Simulation d&rsquo;examen blanc</li>
+                            </ul>
+                            <p><strong>Inclus dans le prix :</strong><br>
+                            Frais d&rsquo;inscription, manuel de code, accès à la plateforme en ligne, présentation aux examens.</p>
+                            <p><strong>Inscrivez-vous maintenant !</strong></p>
+                            
+                            <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Inscription
+                            </button>
+                        '>
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Voir les détails
+                    </button>
+
+                    <!-- Bouton Prix Principal -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900">35 000 Gdes</span>
                         </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Introduction aux systèmes solaires photovoltaïques et à l'énergie renouvelable.
-                        </p>
-                        <div class="flex items-center space-x-4">
-                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
-                                <i class="fas fa-download mr-2"></i>
-                                Télécharger la fiche
-                            </a>
-                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
-                                Préinscription
-                            </a>
-                        </div>
+                        <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Inscription
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation 6 : Électricité bâtiment -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up relative transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-gray-100">
+                <!-- Badge de popularité -->
+                <div class="absolute top-4 right-4 z-10">
+                    <span class="px-3 py-1 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white text-xs font-semibold rounded-full shadow-md">
+                        Demandé
+                    </span>
+                </div>
+                
+                <!-- Zone image améliorée -->
+                <div class="h-56 relative overflow-hidden bg-gradient-to-br from-yellow-50 to-amber-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-20 h-20 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover formation-card" data-domaine="couture" data-duree="seminaire">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <i class="fas fa-palette text-white text-4xl"></i>
+                <!-- Contenu amélioré -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-display text-xl font-bold text-gray-900">
+                            Électricité Bâtiment
+                        </h3>
+                        <span class="text-xs font-medium px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full">Intermédiaire</span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-semibold text-xl text-gray-900">Design textile</h3>
-                            <span class="bg-celi-orange/10 text-celi-orange px-3 py-1 rounded-full text-sm font-medium">Séminaire</span>
+                    
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Apprenez l'installation, la maintenance et la réparation des systèmes électriques résidentiels et commerciaux selon les normes en vigueur.
+                    </p>
+                    
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>1 an</span>
+                        <span class="mx-2">•</span>
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span>Qualifiante</span>
+                    </div>
+
+                    <!-- Bouton Voir Détail -->
+                    <button 
+                        class="modal-open w-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-3 flex items-center justify-center"
+                        data-title="Détails de la Formation Électricité Bâtiment"
+                        data-content='
+                            <p><strong>Devenez électricien qualifié avec notre formation complète ! ⚡🏠</strong></p>
+                            <p>Formation pratique d&rsquo;un an pour maîtriser tous les aspects de l&rsquo;électricité du bâtiment.</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>✅ Lecture de plans électriques</li>
+                                <li>✅ Installation de tableaux électriques</li>
+                                <li>✅ Câblage et raccordements</li>
+                                <li>✅ Dépannage et maintenance</li>
+                                <li>✅ Normes de sécurité électrique</li>
+                            </ul>
+                            <p><strong>Équipement fourni :</strong><br>
+                            Outillage professionnel, simulateurs électriques, matériel pédagogique complet.</p>
+                            <p><strong>Inscrivez-vous maintenant !</strong></p>
+                            
+                            <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Inscription
+                            </button>
+                        '>
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Voir les détails
+                    </button>
+
+                    <!-- Bouton Prix Principal -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900">30 000 Gdes</span>
                         </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Techniques avancées de design et personnalisation textile pour créateurs.
-                        </p>
-                        <div class="flex items-center space-x-4">
-                            <a href="#" class="text-celi-blue hover:text-celi-blue/80 font-medium inline-flex items-center">
-                                <i class="fas fa-download mr-2"></i>
-                                Télécharger la fiche
-                            </a>
-                            <a href="#" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
-                                Préinscription
-                            </a>
+                        <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Inscription
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation 7 : Plomberie -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up relative transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-gray-100">
+                <!-- Zone image améliorée -->
+                <div class="h-56 relative overflow-hidden bg-gradient-to-br from-teal-50 to-green-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-20 h-20 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Contenu amélioré -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-display text-xl font-bold text-gray-900">
+                            Plomberie
+                        </h3>
+                        <span class="text-xs font-medium px-2 py-1 bg-teal-100 text-teal-700 rounded-full">Intermédiaire</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Formation complète en installation et réparation de systèmes de plomberie sanitaire et de chauffage pour les bâtiments résidentiels.
+                    </p>
+                    
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>1 an</span>
+                        <span class="mx-2">•</span>
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span>Qualifiante</span>
+                    </div>
+
+                    <!-- Bouton Voir Détail -->
+                    <button 
+                        class="modal-open w-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-3 flex items-center justify-center"
+                        data-title="Détails de la Formation Plomberie"
+                        data-content='
+                            <p><strong>Devenez plombier professionnel avec notre formation pratique ! 🛠️🚰</strong></p>
+                            <p>Apprenez un métier essentiel et toujours en demande avec notre formation complète de plomberie.</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>✅ Installation de réseaux d&rsquo;eau</li>
+                                <li>✅ Pose de sanitaires et robinetterie</li>
+                                <li>✅ Détection et réparation de fuites</li>
+                                <li>✅ Maintenance des systèmes de chauffage</li>
+                                <li>✅ Normes sanitaires et environnementales</li>
+                            </ul>
+                            <p><strong>Stage pratique inclus :</strong><br>
+                            1 mois de stage en entreprise pour une mise en situation réelle.</p>
+                            <p><strong>Inscrivez-vous maintenant !</strong></p>
+                            
+                            <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Inscription
+                            </button>
+                        '>
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Voir les détails
+                    </button>
+
+                    <!-- Bouton Prix Principal -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900">28 000 Gdes</span>
                         </div>
+                        <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Inscription
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formation 8 : Carrelage -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up relative transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl border border-gray-100">
+                <!-- Badge de popularité -->
+                <div class="absolute top-4 right-4 z-10">
+                    <span class="px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-semibold rounded-full shadow-md">
+                        Manuel
+                    </span>
+                </div>
+                
+                <!-- Zone image améliorée -->
+                <div class="h-56 relative overflow-hidden bg-gradient-to-br from-orange-50 to-red-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent z-10"></div>
+                    <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-20 h-20 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Contenu amélioré -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-display text-xl font-bold text-gray-900">
+                            Carrelage
+                        </h3>
+                        <span class="text-xs font-medium px-2 py-1 bg-orange-100 text-orange-700 rounded-full">Débutant</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Apprenez les techniques de pose de carrelage mural et au sol, la préparation des supports, les joints et finitions professionnelles.
+                    </p>
+                    
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>1 an</span>
+                        <span class="mx-2">•</span>
+                        <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span>Certifiée</span>
+                    </div>
+
+                    <!-- Bouton Voir Détail -->
+                    <button 
+                        class="modal-open w-full bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 py-2.5 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-3 flex items-center justify-center"
+                        data-title="Détails de la Formation Carrelage"
+                        data-content='
+                            <p><strong>Devenez carreleur professionnel avec notre formation complète ! 🧱✨</strong></p>
+                            <p>Apprenez un métier du bâtiment très demandé avec des techniques modernes de pose de carrelage.</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>✅ Préparation des surfaces et calculs</li>
+                                <li>✅ Techniques de pose murale et au sol</li>
+                                <li>✅ Découpe et adaptation des carreaux</li>
+                                <li>✅ Réalisation de joints et finitions</li>
+                                <li>✅ Pose de carrelage décoratif et mosaïque</li>
+                            </ul>
+                            <p><strong>Matériel fourni :</strong><br>
+                            Équipement de sécurité, outils professionnels, carreaux d&rsquo;exercice, colle et joints.</p>
+                            <p><strong>Inscrivez-vous maintenant !</strong></p>
+                            
+                            <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Inscription
+                            </button>
+                        '>
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Voir les détails
+                    </button>
+
+                    <!-- Bouton Prix Principal -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-gray-900">25 000 Gdes</span>
+                        </div>
+                        <button onclick="ouvrirFormEcoleZed123()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Inscription
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Section CTA améliorée -->
+        <div class="mt-16 text-center">
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 md:p-12 shadow-xl">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                    Prêt à acquérir des compétences pratiques ?
+                </h3>
+                <p class="text-blue-100 text-lg mb-6 max-w-2xl mx-auto">
+                    Choisissez parmi nos 8 formations professionnelles et démarrez votre nouvelle carrière dans les métiers techniques et artisanaux.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Télécharger le catalogue
+                    </button>
+                    <button class="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+                        Demander un conseiller
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- ===== STATISTIQUES & TÉMOIGNAGES ===== -->
     <section id="resultats" class="py-20 lg:py-32 bg-white">
@@ -776,6 +1286,38 @@
             </form>
         </div>
     </section>
+<!-- Section Équipe Direction (Responsive Mobile-First) -->
+<section class="py-16 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">
+      Équipe de Direction
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Directeur programme -->
+      <div class="bg-gray-50 rounded-2xl shadow-sm p-6 border border-gray-200 text-center">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Directeur du programme</h3>
+        <p class="text-gray-700 text-lg font-medium">Colin Inamour</p>
+      </div>
+
+      <!-- Secrétaire général -->
+      <div class="bg-gray-50 rounded-2xl shadow-sm p-6 border border-gray-200 text-center">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Secrétaire général</h3>
+        <p class="text-gray-700 text-lg font-medium">Jolius Jean</p>
+      </div>
+
+      <!-- Trésorier -->
+      <div class="bg-gray-50 rounded-2xl shadow-sm p-6 border border-gray-200 text-center">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Trésorier</h3>
+        <p class="text-gray-700 text-lg font-medium">Lesly Lambert</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
     <!-- ===== CONTACT SECTION ===== -->
     <section id="contact" class="py-20 lg:py-32 bg-white">

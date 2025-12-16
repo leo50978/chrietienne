@@ -1,1937 +1,908 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Eclat Royal - Services numériques rapides et fiables</title>
-  <meta name="description" content="Eclat Royal - Boost publicité, badge WhatsApp, ChatGPT Go, crédits de jeux et services sur demande." />
-  <meta name="author" content="Eclat Royal" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23000' width='100' height='100'/%3E%3Ctext x='50' y='57' font-size='50' fill='%23fff' text-anchor='middle' font-family='Arial'%3EV%3C/text%3E%3C/svg%3E">
-
-  <!-- Google Fonts (typographie premium) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS (CDN, play mode) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Tailwind config for fonts & container
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#0ea5a0',
-            accent: '#7c3aed',
-            'glass': 'rgba(255,255,255,0.06)'
-          },
-          fontFamily: {
-            sans: ['Inter','system-ui','-apple-system','"Segoe UI"','Roboto','"Helvetica Neue"'],
-            serif: ['Playfair Display','Georgia']
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CICLE - Investissement Chrétien pour la Liberté Économique</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            --secondary-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --accent-gradient: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
         }
-      }
-    }
-  </script>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-TY3n2GZ2Yv7k2GqZMXkq...replacedForBrevity..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Anime.js -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-6vD1JbJ6Z3bGz0s..." crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <!-- Minimal custom CSS (only where relevant) -->
-  <style>
-    /* Focus-visible for accessibility */
-    :focus { outline: none; }
-    :focus-visible { outline: 3px solid rgba(14,165,160,0.35); border-radius: 6px; outline-offset: 2px; }
-
-    /* Glassy backdrop for premium look */
-    .glass-card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-
-    /* Smooth hardware-accelerated transforms */
-    .will-change-transform { will-change: transform, opacity; }
-
-    /* Floating WhatsApp button position */
-    .whatsapp-float { position: fixed; z-index: 60; right: 1rem; bottom: 1.25rem; }
-
-    /* Prevent large layout shifts for animated circles */
-    .circle-anim { width: 120px; height: 120px; border-radius: 9999px; display:flex; align-items:center; justify-content:center; }
-
-    /* Subtle utility for visually hidden text */
-    .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-  </style>
-</head>
-<body class="bg-[#05060a] text-slate-100 leading-relaxed antialiased">
-
-  <!-- Skip link for screen readers -->
-  <a class="sr-only focus:not-sr-only absolute left-4 top-4 bg-white text-slate-900 px-3 py-2 rounded" href="#main">Aller au contenu</a>
-
-  <!-- HEADER (fixed) -->
-<header class="fixed inset-x-0 top-0 z-50 backdrop-blur-xl bg-[#0b1220]/70 border-b border-white/10 shadow-lg">
-  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
-    <div class="flex items-center justify-between h-16">
-      
-      <!-- 🔹 Logo -->
-      <a href="#" class="flex items-center gap-3" aria-label="Eclat Royal - Accueil">
-        <div class="flex-shrink-0">
-          <img 
-            src="logoeclatroyal.png" 
-            alt="Logo Eclat Royal"
-            width="60"
-            height="60"
-            class="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-lg transition-transform duration-300 hover:scale-105"
-          />
-        </div>
-        <div class="hidden sm:block leading-tight">
-          <h1 class="text-base sm:text-lg font-semibold tracking-tight text-white">
-           Eclat <span class="text-primary">Royal</span>
-          </h1>
-          <p class="text-xs text-slate-400">Services numériques rapides</p>
-        </div>
-      </a>
-
-      <!-- 🔹 Menu Desktop -->
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#services" class="text-sm font-medium text-slate-300 hover:text-white transition">Services</a>
-        <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-white transition">Contact</a>
-        <a 
-          href="https://wa.me/50955408424" 
-          class="inline-flex items-center gap-2 bg-primary text-slate-900 px-4 py-2 rounded-md text-sm font-semibold shadow-md hover:brightness-105 transition focus-visible:ring-4 focus-visible:ring-primary/30"
-        >
-          <i class="fa-solid fa-bolt"></i> Commander
-        </a>
-      </div>
-
-      <!-- 🔹 Hamburger Mobile -->
-      <div class="md:hidden">
-        <button 
-          id="btn-menu" 
-          aria-expanded="false" 
-          aria-controls="mobile-menu" 
-          class="p-2 rounded-md text-slate-300 hover:text-white focus-visible:ring-4 focus-visible:ring-primary/30"
-        >
-          <span class="sr-only">Ouvrir le menu</span>
-          <i class="fa-solid fa-bars text-xl"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- 🔹 Menu Mobile -->
-    <div id="mobile-menu" class="hidden md:hidden mt-2" aria-hidden="true">
-      <div class="bg-[#0b1220]/90 backdrop-blur-lg border border-white/10 px-3 py-4 rounded-lg">
-        <a href="#services" class="block px-3 py-2 rounded text-sm font-medium text-slate-300 hover:text-white transition">Services</a>
-        <a href="#contact" class="block px-3 py-2 rounded text-sm font-medium text-slate-300 hover:text-white transition">Contact</a>
-        <a 
-          href="https://wa.me/50955408424" 
-          class="mt-2 block px-3 py-2 rounded-md text-sm font-semibold bg-primary text-slate-900 text-center hover:brightness-110 transition"
-        >
-          <i class="fa-brands fa-whatsapp"></i> Commander
-        </a>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<script>
-  const btnMenu = document.getElementById('btn-menu');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  btnMenu.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('hidden');
-    btnMenu.setAttribute('aria-expanded', !isOpen);
-    mobileMenu.setAttribute('aria-hidden', isOpen);
-  });
-</script>
-
-
-  <main id="main" class="pt-24">
-<section id="hero" class="relative w-full min-h-screen overflow-hidden mb-24">
-  <div id="carousel" class="flex transition-transform duration-700 ease-in-out w-full">
-
-    <!-- 🟦 SLIDE 1 : Recharge Wise/Meru -->
-    <div class="min-w-full flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-10">
-      <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <img src="recharge.jpg"
-             alt="Recharge carte Wise, Meru"
-             class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-lg shadow-lg">
-      </div>
-      <div class="w-full md:w-1/2 text-center md:text-left">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">🚀 Recharge carte Wise & Meru</h1>
-        <p class="text-gray-600 mb-6 text-sm sm:text-base">
-         Rechargez votre carte Wise et Meru rapidement et facilement.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-          <a id="boostFbCommander" href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
-            <i class="fa-solid fa-credit-card"></i> Commander
-          </a>
-          <button id="boostFbInfo" class="border hidden border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition">
-            En savoir plus
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🟩 SLIDE 2 : Abonnement Disney -->
-    <div class="min-w-full flex flex-col md:flex-row-reverse items-center justify-center px-6 md:px-16 py-10">
-      <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <img src="disney.jpeg" alt="Abonnement Disney" class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-lg shadow-lg">
-      </div>
-      <div class="w-full md:w-1/2 text-center md:text-right">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">💬 Abonnement Disney+</h1>
-        <p class="text-gray-600 mb-6 text-sm sm:text-base">
-       Abonnement Disney - plongez dans un univers magique!
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-end">
-          <a id="badgeWppCommander" href="#" class="bg-green-600 text-white px-6 py-3 rounded-lg shadow hover:bg-green-700 transition">
-            <i class="fa-brands fa-disney"></i> Commander
-          </a>
-          <button id="badgeWppInfo" class="border hidden border-green-600 text-green-600 px-6 py-3 rounded-lg hover:bg-green-600 hover:text-white transition">
-            En savoir plus
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🟪 SLIDE 3 : Création cartes virtuelles -->
-    <div class="min-w-full flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-10">
-      <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <img src="carte.webp" alt="Création cartes virtuelles" class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-lg shadow-lg">
-      </div>
-      <div class="w-full md:w-1/2 text-center md:text-left">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">💳 Création cartes virtuelles</h1>
-        <p class="text-gray-600 mb-6 text-sm sm:text-base">
-          Créez facilement vos cartes virtuelles uniques !!
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-          <a id="paiementCommander" href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700 transition">
-            <i class="fa-solid fa-credit-card"></i> Commander
-          </a>
-          <button id="paiementInfo" class="border hidden border-indigo-600 text-indigo-600 px-6 py-3 rounded-lg hover:bg-indigo-600 hover:text-white transition">
-            En savoir plus
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ⚫ SLIDE 4 : Abonnement Netflix -->
-    <div class="min-w-full flex flex-col md:flex-row-reverse items-center justify-center px-6 md:px-16 py-10">
-      <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <img src="netflix.webp" alt="Abonnement Netflix" class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-lg shadow-lg">
-      </div>
-      <div class="w-full md:w-1/2 text-center md:text-right">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">🤖 Abonnement Netflix</h1>
-        <p class="text-gray-600 mb-6 text-sm sm:text-base">
-        Accédez facilement à tous vos services essentiels!
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-end">
-          <a id="chatgptCommander" href="#" class="bg-gray-800 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-900 transition">
-            <i class="fa-solid fa-film"></i> Commander
-          </a>
-          <button id="chatgptInfo" class="border hidden border-gray-800 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition">
-            En savoir plus
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🎮 SLIDE 5 : Coins & Diamants -->
-    <div class="min-w-full flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-10">
-      <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <img src="freefire.jpg"
-             alt="Achat de coins et diamants"
-             class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-lg shadow-lg">
-      </div>
-      <div class="w-full md:w-1/2 text-center md:text-left">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">🎮 Achat de Coins & Diamants</h1>
-        <p class="text-gray-600 mb-6 text-sm sm:text-base">
-          Obtiens tes <strong>coins Free Fire</strong>, <strong>diamants Free Fire</strong>, 
-          et bien d'autres monnaies de jeux au meilleur prix 💰.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-          <a id="coinsCommander" href="#" class="bg-orange-600 text-white px-6 py-3 rounded-lg shadow hover:bg-orange-700 transition">
-            <i class="fa-solid fa-cart-shopping"></i> Commander maintenant
-          </a>
-          <button id="coinsInfo" class="border hidden border-orange-600 text-orange-600 px-6 py-3 rounded-lg hover:bg-orange-600 hover:text-white transition">
-            En savoir plus
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🎓 SLIDE 6 : Cours en ligne -->
-    <div class="min-w-full flex flex-col md:flex-row-reverse items-center justify-center px-6 md:px-16 py-10">
-      <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-             alt="Cours en ligne"
-             class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-lg shadow-lg">
-      </div>
-      <div class="w-full md:w-1/2 text-center md:text-left">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">🎓 Cours en ligne Premium</h1>
-        <p class="text-gray-600 mb-6 text-sm sm:text-base">
-          Coursera Plus, Udemy, Skillshare, MasterClass - Développez vos compétences avec les meilleures plateformes.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-          <a id="coursCommander" href="#" class="bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition">
-            <i class="fa-solid fa-graduation-cap"></i> Commander
-          </a>
-          <button id="coursInfo" class="border hidden border-purple-600 text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-600 hover:text-white transition">
-            En savoir plus
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🎨 SLIDE 7 : Design & Création -->
-    <div class="min-w-full flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-10">
-      <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-             alt="Design & Création"
-             class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-lg shadow-lg">
-      </div>
-      <div class="w-full md:w-1/2 text-center md:text-right">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">🎨 Design & Création</h1>
-        <p class="text-gray-600 mb-6 text-sm sm:text-base">
-          Canva Pro, PixelLab, CapCut Pro, Adobe Creative Cloud - Tous les outils créatifs dont vous avez besoin.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-end">
-          <a id="designCommander" href="#" class="bg-pink-600 text-white px-6 py-3 rounded-lg shadow hover:bg-pink-700 transition">
-            <i class="fa-solid fa-paint-brush"></i> Commander
-          </a>
-          <button id="designInfo" class="border hidden border-pink-600 text-pink-600 px-6 py-3 rounded-lg hover:bg-pink-600 hover:text-white transition">
-            En savoir plus
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🎵 SLIDE 8 : Musique & Streaming -->
-    <div class="min-w-full flex flex-col md:flex-row-reverse items-center justify-center px-6 md:px-16 py-10">
-      <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-             alt="Musique & Streaming"
-             class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-lg shadow-lg">
-      </div>
-      <div class="w-full md:w-1/2 text-center md:text-left">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">🎵 Musique & Streaming</h1>
-        <p class="text-gray-600 mb-6 text-sm sm:text-base">
-          Spotify, Apple Music, YouTube Music, Deezer - Écoutez votre musique sans limites.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-          <a id="musicCommander" href="#" class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition">
-            <i class="fa-solid fa-music"></i> Commander
-          </a>
-          <button id="musicInfo" class="border hidden border-red-600 text-red-600 px-6 py-3 rounded-lg hover:bg-red-600 hover:text-white transition">
-            En savoir plus
-          </button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🪟 MODALES (1 par slide) -->
-<!-- ... (les modales existantes restent les mêmes) ... -->
-<div id="boostFbModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center">
-    <h2 class="text-2xl font-bold mb-3">🚀 Recharge carte Wise & Meru</h2>
-    <p class="text-gray-600 mb-6">Rechargez vos cartes Wise et Meru rapidement et sécurisé.</p>
-    <button onclick="fermerModal('boostFbModal')" class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700">Fermer</button>
-  </div>
-</div>
-
-<div id="badgeWppModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center">
-    <h2 class="text-2xl font-bold mb-3">💬 Abonnement Disney+</h2>
-    <p class="text-gray-600 mb-6">Accédez à tout le contenu Disney, Marvel, Pixar et Star Wars.</p>
-    <button onclick="fermerModal('badgeWppModal')" class="bg-green-600 text-white px-5 py-2 rounded hover:bg-green-700">Fermer</button>
-  </div>
-</div>
-
-<div id="paiementModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center">
-    <h2 class="text-2xl font-bold mb-3">💳 Création cartes virtuelles</h2>
-    <p class="text-gray-600 mb-6">Créez des cartes virtuelles sécurisées pour vos achats en ligne.</p>
-    <button onclick="fermerModal('paiementModal')" class="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700">Fermer</button>
-  </div>
-</div>
-
-<div id="chatgptModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center">
-    <h2 class="text-2xl font-bold mb-3">🤖 Abonnement Netflix</h2>
-    <p class="text-gray-600 mb-6">Films, séries et documentaires en illimité.</p>
-    <button onclick="fermerModal('chatgptModal')" class="bg-gray-800 text-white px-5 py-2 rounded hover:bg-gray-900">Fermer</button>
-  </div>
-</div>
-
-<div id="coinsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center">
-    <h2 class="text-2xl font-bold mb-3">🎮 Coins & Diamants</h2>
-    <p class="text-gray-600 mb-6">Recharge rapide et sécurisée pour tous vos jeux préférés : Free Fire, PUBG, etc.</p>
-    <button onclick="fermerModal('coinsModal')" class="bg-orange-600 text-white px-5 py-2 rounded hover:bg-orange-700">Fermer</button>
-  </div>
-</div>
-
-<div id="coursModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center">
-    <h2 class="text-2xl font-bold mb-3">🎓 Cours en ligne Premium</h2>
-    <p class="text-gray-600 mb-6">Coursera Plus, Udemy, Skillshare, MasterClass - Développez vos compétences.</p>
-    <button onclick="fermerModal('coursModal')" class="bg-purple-600 text-white px-5 py-2 rounded hover:bg-purple-700">Fermer</button>
-  </div>
-</div>
-
-<div id="designModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center">
-    <h2 class="text-2xl font-bold mb-3">🎨 Design & Création</h2>
-    <p class="text-gray-600 mb-6">Canva Pro, PixelLab, CapCut Pro, Adobe Creative Cloud.</p>
-    <button onclick="fermerModal('designModal')" class="bg-pink-600 text-white px-5 py-2 rounded hover:bg-pink-700">Fermer</button>
-  </div>
-</div>
-
-<div id="musicModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center">
-    <h2 class="text-2xl font-bold mb-3">🎵 Musique & Streaming</h2>
-    <p class="text-gray-600 mb-6">Spotify, Apple Music, YouTube Music, Deezer Premium.</p>
-    <button onclick="fermerModal('musicModal')" class="bg-red-600 text-white px-5 py-2 rounded hover:bg-red-700">Fermer</button>
-  </div>
-</div>
-
-<!-- ✅ SCRIPT GÉNÉRAL -->
-<script>
-  const numeroWhatsApp = "50955408424";
-
-  function ouvrirModal(id) {
-    document.getElementById(id).classList.remove("hidden");
-  }
-  function fermerModal(id) {
-    document.getElementById(id).classList.add("hidden");
-  }
-
-  function commander(service) {
-    const message = encodeURIComponent(`Bonjour 👋, je souhaite commander le service suivant : ${service}`);
-    window.open(`https://wa.me/${numeroWhatsApp}?text=${message}`, "_blank");
-  }
-
-  // 🎯 Liaisons uniques pour chaque slide
-  document.getElementById("boostFbInfo").onclick = () => ouvrirModal("boostFbModal");
-  document.getElementById("boostFbCommander").onclick = () => commander("Recharge carte Wise & Meru");
-
-  document.getElementById("badgeWppInfo").onclick = () => ouvrirModal("badgeWppModal");
-  document.getElementById("badgeWppCommander").onclick = () => commander("Abonnement Disney+");
-
-  document.getElementById("paiementInfo").onclick = () => ouvrirModal("paiementModal");
-  document.getElementById("paiementCommander").onclick = () => commander("Création de cartes virtuelles");
-
-  document.getElementById("chatgptInfo").onclick = () => ouvrirModal("chatgptModal");
-  document.getElementById("chatgptCommander").onclick = () => commander("Abonnement Netflix");
-
-  document.getElementById("coinsInfo").onclick = () => ouvrirModal("coinsModal");
-  document.getElementById("coinsCommander").onclick = () => commander("Achat de Coins & Diamants");
-
-  // Nouvelles liaisons pour les nouveaux services
-  document.getElementById("coursInfo").onclick = () => ouvrirModal("coursModal");
-  document.getElementById("coursCommander").onclick = () => commander("Cours en ligne Premium");
-
-  document.getElementById("designInfo").onclick = () => ouvrirModal("designModal");
-  document.getElementById("designCommander").onclick = () => commander("Design & Création");
-
-  document.getElementById("musicInfo").onclick = () => ouvrirModal("musicModal");
-  document.getElementById("musicCommander").onclick = () => commander("Musique & Streaming");
-</script>
-
-
-<!-- ===== SCRIPT ANIME.JS + CAROUSEL ===== -->
-<script>
-  const slides = document.querySelectorAll('#carousel > div');
-  let currentSlide = 0;
-
-  function showSlide(index) {
-    slides.forEach((s, i) => {
-      s.classList.toggle('hidden', i !== index);
-      if (i === index) {
-        anime({
-          targets: s.querySelectorAll('img, h1, p, a'),
-          opacity: [0, 1],
-          translateY: [30, 0],
-          delay: anime.stagger(100),
-          duration: 700,
-          easing: 'easeOutQuad'
-        });
-      }
-    });
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  // Défilement automatique toutes les 5s
-  setInterval(nextSlide, 5000);
-
-  // Afficher le premier slide
-  showSlide(currentSlide);
-</script>
-
-    <!-- HERO / Introduction (animated) -->
-  
-
-    <!-- SERVICES SECTION -->
-    <section id="services" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20" aria-labelledby="services-title">
-      <div class="mb-8" data-animate>
-        <h2 id="services-title" class="text-3xl sm:text-4xl font-serif">Nos Services</h2>
-        <p class="text-slate-400 mt-2 max-w-prose">Solutions claires, prix transparents et livraison rapide. Chaque service est optimisé pour la conversion.</p>
-      </div>
-
-      <!-- Catégories de services -->
-      <div class="mb-12" data-animate>
-        <h3 class="text-2xl font-semibold mb-4 text-primary">🎓 Formation & Cours en ligne</h3>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
-          <!-- Coursera Plus -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Coursera Plus"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"1,200 HTG"},
-              {"plan":"3 mois","price":"3,200 HTG"},
-              {"plan":"6 mois","price":"6,000 HTG"},
-              {"plan":"1 an","price":"11,000 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-graduation-cap fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Coursera Plus</h3>
-                <p class="text-sm text-slate-300 mt-1">Accès illimité à des milliers de cours certifiants.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>📚 Certifications incluses</li>
-              <li>🎓 Cours de top universités</li>
-              <li>⚡ Accès immédiat</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">1,200 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">3,200 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">6,000 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">11,000 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Udemy -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Udemy"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 cours","price":"450 HTG"},
-              {"plan":"Cours premium","price":"800 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-laptop-code fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Udemy</h3>
-                <p class="text-sm text-slate-300 mt-1">Achetez n'importe quel cours Udemy à prix réduit.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>💻 +200,000 cours disponibles</li>
-              <li>🎯 Apprentissage à vie</li>
-              <li>📱 Accès mobile & desktop</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 cours standard</span><span class="font-semibold text-white">450 HTG</span></div>
-                <div class="flex justify-between"><span>Cours premium</span><span class="font-semibold text-white">800 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-purple-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Skillshare -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Skillshare"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"800 HTG"},
-              {"plan":"3 mois","price":"2,100 HTG"},
-              {"plan":"6 mois","price":"4,000 HTG"},
-              {"plan":"1 an","price":"7,000 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-lightbulb fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Skillshare</h3>
-                <p class="text-sm text-slate-300 mt-1">Plateforme de cours créatifs et techniques.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎨 Cours créatifs</li>
-              <li>📊 Design & business</li>
-              <li>👨‍🏫 Enseignants experts</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">800 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">2,100 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">4,000 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">7,000 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-orange-500 text-slate-900 text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- MasterClass -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="MasterClass"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"1,000 HTG"},
-              {"plan":"3 mois","price":"2,800 HTG"},
-              {"plan":"6 mois","price":"5,400 HTG"},
-              {"plan":"1 an","price":"9,500 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-red-500 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-crown fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">MasterClass</h3>
-                <p class="text-sm text-slate-300 mt-1">Apprenez avec les plus grands experts mondiaux.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🏆 Experts célèbres</li>
-              <li>🎬 Production cinématographique</li>
-              <li>📖 Contenu exclusif</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">1,000 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">2,800 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">5,400 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">9,500 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-red-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Catégorie Design & Création -->
-      <div class="mb-12" data-animate>
-        <h3 class="text-2xl font-semibold mb-4 text-primary">🎨 Design & Création</h3>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
-          <!-- Canva Pro -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Canva Pro"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"500 HTG"},
-              {"plan":"3 mois","price":"1,400 HTG"},
-              {"plan":"6 mois","price":"2,700 HTG"},
-              {"plan":"1 an","price":"5,000 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-palette fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Canva Pro</h3>
-                <p class="text-sm text-slate-300 mt-1">Design graphique professionnel simplifié.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎨 Templates premium</li>
-              <li>📱 Outils avancés</li>
-              <li>📁 Stock illimité</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">500 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">1,400 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">2,700 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">5,000 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-teal-500 text-slate-900 text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- PixelLab Premium -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="PixelLab Premium"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"300 HTG"},
-              {"plan":"3 mois","price":"700 HTG"},
-              {"plan":"6 mois","price":"1,300 HTG"},
-              {"plan":"1 an","price":"2,000 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-edit fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">PixelLab Premium</h3>
-                <p class="text-sm text-slate-300 mt-1">Éditeur photo avancé pour mobile.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>📸 Édition photo pro</li>
-              <li>🖋️ Outils texte avancés</li>
-              <li>🎭 Filtres exclusifs</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">300 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">700 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">1,300 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">2,000 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-yellow-500 text-slate-900 text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- CapCut Pro -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="CapCut Pro"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"600 HTG"},
-              {"plan":"3 mois","price":"1,600 HTG"},
-              {"plan":"6 mois","price":"3,000 HTG"},
-              {"plan":"1 an","price":"5,500 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-blue-400 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-video fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">CapCut Pro (VPN requis)</h3>
-                <p class="text-sm text-slate-300 mt-1">Montage vidéo professionnel avec effets avancés.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎬 Effets pro inclus</li>
-              <li>⚡ Export rapide</li>
-              <li>🔓 Pas de watermark</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">600 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">1,600 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">3,000 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">5,500 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-blue-500 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Adobe Creative Cloud -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Adobe Creative Cloud"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"2,200 HTG"},
-              {"plan":"3 mois","price":"6,300 HTG"},
-              {"plan":"6 mois","price":"12,000 HTG"},
-              {"plan":"1 an","price":"22,000 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-cube fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Adobe Creative Cloud</h3>
-                <p class="text-sm text-slate-300 mt-1">Suite complète : Photoshop, Illustrator, Premiere Pro.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🖼️ Photoshop inclus</li>
-              <li>✏️ Illustrator inclus</li>
-              <li>🎥 Premiere Pro inclus</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">2,200 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">6,300 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">12,000 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">22,000 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-red-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Catégorie Gaming -->
-      <div class="mb-12" data-animate>
-        <h3 class="text-2xl font-semibold mb-4 text-primary">🎮 Gaming & Abonnements</h3>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
-          <!-- PlayStation Plus -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="PlayStation Plus Essential"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"900 HTG"},
-              {"plan":"3 mois","price":"2,600 HTG"},
-              {"plan":"6 mois","price":"5,000 HTG"},
-              {"plan":"1 an","price":"9,500 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-blue-700 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-brands fa-playstation fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">PlayStation Plus</h3>
-                <p class="text-sm text-slate-300 mt-1">Jeux gratuits, multijoueur en ligne, réductions.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎮 Jeux mensuels gratuits</li>
-              <li>🌐 Multijoueur en ligne</li>
-              <li>💾 Stockage cloud</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">900 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">2,600 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">5,000 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">9,500 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-blue-700 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Xbox Game Pass -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Xbox Game Pass"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"800 HTG"},
-              {"plan":"3 mois","price":"2,300 HTG"},
-              {"plan":"6 mois","price":"4,200 HTG"},
-              {"plan":"1 an","price":"8,000 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-brands fa-xbox fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Xbox Game Pass</h3>
-                <p class="text-sm text-slate-300 mt-1">Accès à +100 jeux sur Xbox et PC.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎮 +100 jeux inclus</li>
-              <li>💻 PC & Console</li>
-              <li>🆕 Jeux day-one</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">800 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">2,300 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">4,200 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">8,000 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-green-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- EA Play -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="EA Play"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"500 HTG"},
-              {"plan":"3 mois","price":"1,300 HTG"},
-              {"plan":"6 mois","price":"2,500 HTG"},
-              {"plan":"1 an","price":"4,800 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-orange-600 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-gamepad fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">EA Play</h3>
-                <p class="text-sm text-slate-300 mt-1">Jeux EA en avant-première et contenu exclusif.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>⚽ FIFA, Battlefield, etc.</li>
-              <li>🎮 Essais 10h gratuits</li>
-              <li>🏆 Réductions sur achats</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">500 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">1,300 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">2,500 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">4,800 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-orange-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Crédits de jeux -->
-          <!-- Free Fire Diamonds -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Free Fire Diamonds"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"100 Diamonds","price":"250 HTG"},
-              {"plan":"310 Diamonds","price":"700 HTG"},
-              {"plan":"520 Diamonds","price":"1,100 HTG"},
-              {"plan":"1060 Diamonds","price":"2,200 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-yellow-600 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-gem fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Free Fire Diamonds</h3>
-                <p class="text-sm text-slate-300 mt-1">Recharge de diamants pour Free Fire.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>⚡ Livraison instantanée</li>
-              <li>🎮 Compatible tous comptes</li>
-              <li>💎 Meilleurs prix</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>100 Diamonds</span><span class="font-semibold text-white">250 HTG</span></div>
-                <div class="flex justify-between"><span>310 Diamonds</span><span class="font-semibold text-white">700 HTG</span></div>
-                <div class="flex justify-between"><span>520 Diamonds</span><span class="font-semibold text-white">1,100 HTG</span></div>
-                <div class="flex justify-between"><span>1060 Diamonds</span><span class="font-semibold text-white">2,200 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-yellow-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- PUBG UC -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="PUBG UC"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"60 UC","price":"300 HTG"},
-              {"plan":"325 UC","price":"1,400 HTG"},
-              {"plan":"660 UC","price":"2,500 HTG"},
-              {"plan":"1800 UC","price":"6,400 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-red-700 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-crosshairs fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">PUBG UC</h3>
-                <p class="text-sm text-slate-300 mt-1">Unknown Cash pour PUBG Mobile.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎯 UC pour PUBG Mobile</li>
-              <li>⚡ Recharge rapide</li>
-              <li>🎁 Skins et objets</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>60 UC</span><span class="font-semibold text-white">300 HTG</span></div>
-                <div class="flex justify-between"><span>325 UC</span><span class="font-semibold text-white">1,400 HTG</span></div>
-                <div class="flex justify-between"><span>660 UC</span><span class="font-semibold text-white">2,500 HTG</span></div>
-                <div class="flex justify-between"><span>1800 UC</span><span class="font-semibold text-white">6,400 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-red-700 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Roblox Robux -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Roblox Robux"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"400 Robux","price":"600 HTG"},
-              {"plan":"800 Robux","price":"1,100 HTG"},
-              {"plan":"1700 Robux","price":"2,200 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-cube fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Roblox Robux</h3>
-                <p class="text-sm text-slate-300 mt-1">Monnaie virtuelle pour Roblox.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎮 Robux officiels</li>
-              <li>👕 Skins et accessoires</li>
-              <li>⚡ Livraison instantanée</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>400 Robux</span><span class="font-semibold text-white">600 HTG</span></div>
-                <div class="flex justify-between"><span>800 Robux</span><span class="font-semibold text-white">1,100 HTG</span></div>
-                <div class="flex justify-between"><span>1700 Robux</span><span class="font-semibold text-white">2,200 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-indigo-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Catégorie Streaming Vidéo -->
-      <div class="mb-12" data-animate>
-        <h3 class="text-2xl font-semibold mb-4 text-primary">🎬 Streaming Vidéo</h3>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
-          <!-- Netflix (déjà existant) -->
-          <!-- Disney+ (déjà existant) -->
-          
-          <!-- Amazon Prime Video -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Amazon Prime Video"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"400 HTG"},
-              {"plan":"3 mois","price":"1,000 HTG"},
-              {"plan":"6 mois","price":"2,000 HTG"},
-              {"plan":"1 an","price":"3,800 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-blue-800 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-brands fa-amazon fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Amazon Prime Video</h3>
-                <p class="text-sm text-slate-300 mt-1">Films, séries Amazon Originals exclusives.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎬 Amazon Originals</li>
-              <li>📺 Séries exclusives</li>
-              <li>🎥 Location films récents</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">400 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">1,000 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">2,000 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">3,800 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-blue-800 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- HBO Max -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="HBO Max"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"500 HTG"},
-              {"plan":"3 mois","price":"1,300 HTG"},
-              {"plan":"6 mois","price":"2,500 HTG"},
-              {"plan":"1 an","price":"4,800 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-purple-800 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-tv fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">HBO Max</h3>
-                <p class="text-sm text-slate-300 mt-1">Game of Thrones, Succession, Warner Bros.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>👑 HBO Originals</li>
-              <li>🎬 Warner Bros films</li>
-              <li>📺 Max Originals</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">500 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">1,300 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">2,500 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">4,800 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-purple-800 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Apple TV+ -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Apple TV+"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"350 HTG"},
-              {"plan":"3 mois","price":"900 HTG"},
-              {"plan":"6 mois","price":"1,700 HTG"},
-              {"plan":"1 an","price":"3,200 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-brands fa-apple fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Apple TV+</h3>
-                <p class="text-sm text-slate-300 mt-1">Séries et films Apple Originals.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🍎 Apple Originals</li>
-              <li>🎬 Production qualité</li>
-              <li>📱 Compatible Apple ecosystem</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">350 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">900 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">1,700 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">3,200 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gray-800 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Crunchyroll -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Crunchyroll"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"400 HTG"},
-              {"plan":"3 mois","price":"1,050 HTG"},
-              {"plan":"6 mois","price":"2,000 HTG"},
-              {"plan":"1 an","price":"3,800 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-orange-700 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-play-circle fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Crunchyroll (Anime)</h3>
-                <p class="text-sm text-slate-300 mt-1">La plus grande bibliothèque d'anime.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🇯🇵 Anime simulcast</li>
-              <li>📺 +1000 séries</li>
-              <li>🎬 Sans publicité</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">400 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">1,050 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">2,000 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">3,800 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-orange-700 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Catégorie Musique -->
-      <div class="mb-12" data-animate>
-        <h3 class="text-2xl font-semibold mb-4 text-primary">🎵 Streaming Musique</h3>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
-          <!-- Spotify Premium -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Spotify Premium"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"350 HTG"},
-              {"plan":"3 mois","price":"900 HTG"},
-              {"plan":"6 mois","price":"1,700 HTG"},
-              {"plan":"1 an","price":"3,200 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-brands fa-spotify fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Spotify Premium</h3>
-                <p class="text-sm text-slate-300 mt-1">Écoutez sans pub, téléchargez, son haute qualité.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎵 Sans publicité</li>
-              <li>📱 Téléchargement</li>
-              <li>🎧 Haute qualité audio</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">350 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">900 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">1,700 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">3,200 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-green-500 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Apple Music -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Apple Music"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"400 HTG"},
-              {"plan":"3 mois","price":"1,000 HTG"},
-              {"plan":"6 mois","price":"2,000 HTG"},
-              {"plan":"1 an","price":"3,800 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-pink-600 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-brands fa-apple fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Apple Music</h3>
-                <p class="text-sm text-slate-300 mt-1">+100 millions de titres, radio Apple Music.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎵 +100M de chansons</li>
-              <li>📻 Radio Apple Music</li>
-              <li>🎤 Paroles en temps réel</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">400 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">1,000 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">2,000 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">3,800 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-pink-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Deezer Premium -->
-          <article class="service-card relative p-6 rounded-2xl glass-card border border-white/10 overflow-visible will-change-transform"
-            data-animate
-            data-service="Deezer Premium"
-            data-phone="50955408424"
-            data-plans='[
-              {"plan":"1 mois","price":"300 HTG"},
-              {"plan":"3 mois","price":"850 HTG"},
-              {"plan":"6 mois","price":"1,600 HTG"},
-              {"plan":"1 an","price":"3,000 HTG"}
-            ]'>
-            <div class="flex items-start gap-4">
-              <div class="flex-none">
-                <div class="w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center ring-1 ring-white/8">
-                  <i class="fa-solid fa-music fa-lg" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Deezer Premium</h3>
-                <p class="text-sm text-slate-300 mt-1">Deezer HiFi, recommandations personnalisées.</p>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm space-y-2 text-slate-300">
-              <li>🎵 HiFi qualité</li>
-              <li>🎧 Recommandations Flow</li>
-              <li>📱 Téléchargement illimité</li>
-            </ul>
-            <div class="mt-5 border-t border-white/10 pt-4">
-              <p class="text-sm font-medium text-slate-200 mb-2">💰 Tarifs :</p>
-              <div class="grid grid-cols-1 gap-2 text-slate-300 text-sm">
-                <div class="flex justify-between"><span>1 mois</span><span class="font-semibold text-white">300 HTG</span></div>
-                <div class="flex justify-between"><span>3 mois</span><span class="font-semibold text-white">850 HTG</span></div>
-                <div class="flex justify-between"><span>6 mois</span><span class="font-semibold text-white">1,600 HTG</span></div>
-                <div class="flex justify-between"><span>1 an</span><span class="font-semibold text-white">3,000 HTG</span></div>
-              </div>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-              <button class="buy-btn inline-flex items-center gap-2 px-4 py-2 rounded-md bg-purple-600 text-white text-sm font-medium hover:brightness-110">
-                <i class="fa-solid fa-cart-shopping"></i> Acheter
-              </button>
-              <button class="text-slate-400 text-sm">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Services existants (garder ceux déjà présents) -->
-      <!-- Card 1 : Abonnement Netflix (existant) -->
-      <!-- Card 2 : Free Fire Gift (existant) -->
-      <!-- Card 3 : Recharge Meru (existant) -->
-      <!-- Card 4 : Recharge Wise (existant) -->
-      <!-- Card 5 : Création Carte Virtuelle (existant) -->
-      <!-- Card 6 : Abonnement Disney+ (existant) -->
-      <!-- Card 7 : Gift Card Netflix (existant) -->
-      <!-- Card 8 : Service sur Demande (existant) -->
-
-      <!-- Les cartes existantes restent inchangées -->
-      <!-- ... vos cartes existantes ... -->
-
-      </div>
-    </section>
-
-    <!-- ... le reste du code reste inchangé ... -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20" aria-labelledby="hero-title" data-animate>
-      <div class="grid md:grid-cols-12 gap-8 items-center">
         
-        <!-- Left Side -->
-        <div class="md:col-span-7">
-          <div class="relative overflow-hidden pr-6">
-            
-            <!-- Decorative background -->
-            <div aria-hidden="true" class="absolute -left-10 -top-14 circle-anim will-change-transform"
-              style="background: radial-gradient(circle at 30% 30%, rgba(124,58,237,0.18), transparent 35%),
-                     radial-gradient(circle at 70% 70%, rgba(14,165,160,0.12), transparent 40%);
-                     transform: scale(.6);">
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .gradient-primary {
+            background: var(--primary-gradient);
+        }
+        
+        .gradient-secondary {
+            background: var(--secondary-gradient);
+        }
+        
+        .gradient-accent {
+            background: var(--accent-gradient);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(43, 88, 118, 0.9), rgba(78, 67, 118, 0.9)),
+                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .value-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-left-color: #4e4376;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12  rounded-lg flex items-center justify-center">
+                     <img src="logo_cicle-removebg-preview.png" alt="">
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+               <div class="hidden lg:flex items-center space-x-8">
+    <a href="#mission" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Mission</a>
+    <a href="#vision" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Vision</a>
+    <a href="#valeurs" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Valeurs</a>
+    <a href="celi.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">CELI</a>
+    <a href="invest.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">CELI CEC</a>
+    <a href="elan.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">ELAN VS</a>
+    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Contact</a>
+</div>
+
+                
+                <!-- CTA Button -->
+                <button class="hidden md:block gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                    Devenir Membre
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-gray-700 text-2xl" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+        </nav>
+    </header>
 
-            <h2 id="hero-title" class="text-4xl sm:text-5xl font-serif leading-tight tracking-tight mb-4">
-              Eclat Royal — <span class="text-primary">Services numériques rapides</span><br class="hidden sm:block" />
-              pour vos paiements, abonnements & recharges.
-            </h2>
-
-            <p class="text-lg text-slate-300 mb-6 max-w-prose">
-              Services complets : création de cartes virtuelles, recharge Meru & Wise, abonnements Netflix/Disney+, gift cards, crédits de jeux (Free Fire, Free Fir), publicité digitale et assistance personnalisée.
-            </p>
-
-            <div class="flex gap-3 flex-wrap">
-              <a href="#services" class="inline-flex items-center gap-2 px-4 py-3 rounded-md bg-accent hover:brightness-105 text-white font-semibold focus-visible:ring-4 focus-visible:ring-accent/30">
-                <i class="fa-solid fa-layer-group" aria-hidden="true"></i> Voir nos services
-              </a>
-              <a href="https://wa.me/50955408424" class="inline-flex items-center gap-2 px-4 py-3 rounded-md bg-transparent border border-white/8 text-sm text-slate-200 hover:bg-white/2 focus-visible:ring-4 focus-visible:ring-primary/20">
-                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Discuter sur WhatsApp
-              </a>
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
+                    <span class="gradient-accent bg-clip-text text-transparent">Investissement Chrétien</span><br>pour la Liberté Économique
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+                    Former, connecter et équiper les investisseurs chrétiens pour transformer l'économie selon les valeurs du Royaume
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#mission" class="gradient-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all">
+                        <i class="fas fa-cross mr-2"></i>
+                        Découvrir notre mission
+                    </a>
+                    <a href="celi.html" class="bg-white text-gray-800 px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all">
+                        <i class="fas fa-calendar-check mr-2"></i>
+                       CELI
+                    </a>
+                </div>
             </div>
-
-          </div>
         </div>
-
-        <!-- Right Side -->
-        <div class="md:col-span-5">
-          <div class="space-y-4">
-
-            <div class="p-5 rounded-xl glass-card border border-white/4 will-change-transform" data-animate>
-              <h3 class="font-semibold">Livraison instantanée</h3>
-              <p class="text-sm text-slate-300">Codes, abonnements et recharges envoyés en quelques secondes.</p>
-            </div>
-
-            <div class="p-5 rounded-xl glass-card border border-white/4 will-change-transform" data-animate>
-              <h3 class="font-semibold">Paiement sécurisé</h3>
-              <p class="text-sm text-slate-300">Protection renforcée pour vos achats, cartes et transactions numériques.</p>
-            </div>
-
-            <div class="p-5 rounded-xl glass-card border border-white/4 will-change-transform" data-animate>
-              <h3 class="font-semibold">Services variés</h3>
-              <p class="text-sm text-slate-300">Cartes virtuelles, Meru/Wise, abonnements streaming, jeux, gift cards… tout au même endroit.</p>
-            </div>
-
-            <div class="p-5 rounded-xl glass-card border border-white/4 will-change-transform" data-animate>
-              <h3 class="font-semibold">Support 24/7</h3>
-              <p class="text-sm text-slate-300">Assistance rapide pour chaque achat et demande spéciale.</p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
     </section>
+ <!-- Nouvelle Section: Nos Centres -->
+<section id="centres" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                Nos <span class="gradient-primary bg-clip-text text-transparent">Centres</span>
+            </h2>
+            <div class="w-24 h-1 gradient-primary mx-auto mb-6"></div>
+            <p class="text-xl text-gray-600">
+                Découvrez nos trois pôles d'excellence pour la vision, la formation et l'investissement chrétien
+            </p>
+        </div>
 
-    <!-- CONTACT SECTION -->
-<section
-  id="contact"
-  class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20"
-  aria-labelledby="contact-title"
-  data-animate
->
-  <div
-    class="bg-gradient-to-b from-white/5 to-transparent p-6 sm:p-8 rounded-2xl border border-white/10 backdrop-blur-lg shadow-md"
-  >
-    <h2
-      id="contact-title"
-      class="text-2xl sm:text-3xl font-serif mb-2 text-white"
-    >
-      Contactez <span class="text-primary">Eclat Royal</span>
-    </h2>
+        <!-- Grille des centres -->
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-    <p class="text-slate-400 mb-8 text-sm sm:text-base">
-      Remplissez le formulaire ci-dessous ou discutez directement via WhatsApp.
-    </p>
+            <!-- ÉLAN VISIONNAIRE -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 bg-gradient-to-r from-purple-600 to-blue-600 relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-white text-6xl opacity-20"></i>
+                    </div>
+                    <div class="absolute bottom-4 left-6">
+                        <h3 class="text-white text-2xl font-bold">Élan Visionnaire</h3>
+                        <p class="text-purple-100">Vision • Communauté • Impact</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-6">
+                        Le cœur du mouvement Élan Visionnaire : une plateforme qui connecte,
+                        inspire et élève les croyants à travers le leadership, la foi et l'impact.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-purple-600 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700">Communauté & réseautage</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-purple-600 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700">Mentorat & leadership</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-purple-600 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700">Incubation de projets</span>
+                        </div>
+                    </div>
+                    <a href="elan.html" class="block w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        Découvrir
+                    </a>
+                </div>
+            </div>
 
-    <!-- ✅ Formulaire simple (Formspree) -->
-    <form
-      action="https://formspree.io/f/mpwjajva"
-      method="POST"
-      class="grid gap-5"
-    >
-      <!-- Nom -->
-      <div class="flex flex-col">
-        <label for="name" class="text-sm font-medium mb-1 text-white/90"
-          >Nom complet</label
-        >
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          placeholder="Jean Dupont"
-          autocomplete="name"
-          class="w-full rounded-md px-3 py-2 bg-[#0b1220] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-4 focus:ring-primary/30 transition"
-        />
-      </div>
+            <!-- CELI ÉCOLE -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 gradient-primary relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-6xl opacity-20"></i>
+                    </div>
+                    <div class="absolute bottom-4 left-6">
+                        <h3 class="text-white text-2xl font-bold">CELI École</h3>
+                        <p class="text-blue-100">Centre d'Excellence en Leadership et Innovation</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-6">
+                        Notre école de formation prépare la prochaine génération de leaders
+                        chrétiens dans l'entrepreneuriat, la gestion et l'innovation.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-blue-600 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700">Formations certifiantes</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-blue-600 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700">Ateliers pratiques</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-blue-600 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700">Mentorat personnalisé</span>
+                        </div>
+                    </div>
+                    <a href="celi.html" class="block w-full gradient-primary text-white text-center py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        En savoir plus
+                    </a>
+                </div>
+            </div>
 
-      <!-- Contact -->
-      <div class="flex flex-col">
-        <label for="contact" class="text-sm font-medium mb-1 text-white/90"
-          >WhatsApp ou Email</label
-        >
-        <input
-          id="contact"
-          name="contact"
-          type="text"
-          required
-          placeholder="+509 3X XX XX XX ou mail@exemple.com"
-          autocomplete="email"
-          class="w-full rounded-md px-3 py-2 bg-[#0b1220] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-4 focus:ring-primary/30 transition"
-        />
-      </div>
+            <!-- CEC INVEST -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 gradient-secondary relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-6xl opacity-20"></i>
+                    </div>
+                    <div class="absolute bottom-4 left-6">
+                        <h3 class="text-white text-2xl font-bold">CEC Invest</h3>
+                        <p class="text-green-100">Centre d'Économie Chrétienne</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-6">
+                        Notre centre d'investissement finance des projets entrepreneuriaux
+                        alignés sur les valeurs chrétiennes et à fort impact social.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-green-600 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700">Fonds d'investissement solidaire</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-green-600 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700">Accompagnement financier</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-green-600 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700">Réseau d'investisseurs</span>
+                        </div>
+                    </div>
+                    <a href="invest.html" class="block w-full gradient-secondary text-white text-center py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        En savoir plus
+                    </a>
+                </div>
+            </div>
 
-      <!-- Sélection du service -->
-      <div class="flex flex-col">
-        <label for="service" class="text-sm font-medium mb-1 text-white/90"
-          >Sélection du service</label
-        >
-        <select
-          id="service"
-          name="service"
-          required
-          class="w-full rounded-md px-3 py-2 bg-[#0b1220] border border-white/10 text-white focus:outline-none focus:ring-4 focus:ring-primary/30 transition"
-        >
-          <option value="" disabled selected>Choisir un service</option>
-          <option>Boostage de Publicité Facebook</option>
-          <option>Badge WhatsApp Business</option>
-          <option>Plan ChatGPT Go</option>
-          <option>Crédits / Pièces de jeux</option>
-          <option>Service sur Demande</option>
-          <!-- Nouvelles options -->
-          <option>Coursera Plus</option>
-          <option>Udemy</option>
-          <option>Skillshare</option>
-          <option>MasterClass</option>
-          <option>Canva Pro</option>
-          <option>PixelLab Premium</option>
-          <option>CapCut Pro</option>
-          <option>Adobe Creative Cloud</option>
-          <option>PlayStation Plus</option>
-          <option>Xbox Game Pass</option>
-          <option>EA Play</option>
-          <option>Amazon Prime Video</option>
-          <option>HBO Max</option>
-          <option>Apple TV+</option>
-          <option>Crunchyroll</option>
-          <option>Spotify Premium</option>
-          <option>Apple Music</option>
-          <option>Deezer Premium</option>
-        </select>
-      </div>
-
-      <!-- Message -->
-      <div class="flex flex-col">
-        <label for="message" class="text-sm font-medium mb-1 text-white/90"
-          >Message</label
-        >
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          placeholder="Dites-nous ce dont vous avez besoin..."
-          class="w-full rounded-md px-3 py-2 bg-[#0b1220] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-4 focus:ring-primary/30 transition"
-        ></textarea>
-      </div>
-
-      <!-- Honeypot anti-spam -->
-      <input type="text" name="_gotcha" style="display:none" aria-hidden="true" />
-
-      <!-- Redirection après succès -->
-      <input type="hidden" name="_redirect" value="https://ton-site.com/merci.html" />
-
-      <!-- Boutons d'action -->
-      <div class="flex flex-col sm:flex-row sm:items-center gap-3 mt-4">
-        <button
-          type="submit"
-          class="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-5 py-3 rounded-md bg-primary text-slate-900 font-semibold hover:opacity-90 transition focus:outline-none focus:ring-4 focus:ring-primary/30"
-        >
-          <i class="fa-regular fa-paper-plane"></i>
-          Envoyer
-        </button>
-
-        <a
-          href="https://wa.me/50955408424"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-5 py-3 rounded-md bg-[#25D366] text-slate-900 font-semibold hover:bg-[#20bd5a] transition"
-        >
-          <i class="fa-brands fa-whatsapp"></i>
-          Discuter sur WhatsApp
-        </a>
-      </div>
-    </form>
-  </div>
+        </div>
+    </div>
 </section>
 
 
-
-
-  </main>
-
-  <!-- Floating WhatsApp quick contact -->
-  <a class="whatsapp-float" id="quick-whatsapp" href="https://wa.me/50955408424" target="_blank" rel="noopener noreferrer" aria-label="Contacter via WhatsApp">
-    <div class="p-3 rounded-full shadow-lg" style="background: linear-gradient(135deg,#25D366,#10B981);">
-      <i class="fa-brands fa-whatsapp fa-xl text-white" aria-hidden="true"></i>
-    </div>
-  </a>
-
-  <!-- FOOTER -->
-  <footer class="mt-12 border-t border-white/6">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div>
-          <img src="logoeclatroyal.png" width="70" height="70" alt="Logo Eclat Royal">
+  
+    <section id="mission" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Notre <span class="gradient-primary bg-clip-text text-transparent">Mission</span>
+                </h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Promouvoir l'entrepreneuriat, l'investissement responsable et la liberté économique fondés sur les principes bibliques.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm value-card">
+                    <div class="w-16 h-16 gradient-primary rounded-lg flex items-center justify-center mb-6 text-white text-2xl">
+                        <i class="fas fa-bible"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Contexte</h3>
+                    <p class="text-gray-600">
+                        Dans un monde économique souvent gouverné par des intérêts matérialistes, les chrétiens manquent de ressources et d'accompagnement pour investir selon leurs valeurs. Le CICLE répond à ce besoin crucial.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm value-card">
+                    <div class="w-16 h-16 gradient-secondary rounded-lg flex items-center justify-center mb-6 text-white text-2xl">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Objectifs</h3>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Former les chrétiens en leadership économique</li>
+                        <li>Encourager les investissements éthiques</li>
+                        <li>Créer un réseau d'investisseurs engagés</li>
+                        <li>Influencer positivement les politiques économiques</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div>
-          <div class="font-semibold">Eclat Royal</div>
-          <div class="text-sm text-slate-400">Services numériques rapides et fiables</div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="py-20 gradient-primary">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+                    Notre <span class="gradient-accent bg-clip-text text-transparent">Vision</span>
+                </h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-xl text-blue-100 mb-8">
+                    "Bâtir une communauté d'investisseurs chrétiens libres, influents et engagés pour un monde économiquement équitable, prospère et fidèle aux valeurs du Royaume de Dieu."
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="font-bold text-lg text-white mb-3">Court Terme</h3>
+                        <p class="text-blue-100">
+                            Structurer l'organisation et lancer les premiers programmes de formation
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="font-bold text-lg text-white mb-3">Moyen Terme</h3>
+                        <p class="text-blue-100">
+                            Développer l'incubateur et le fonds d'investissement solidaire
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="font-bold text-lg text-white mb-3">Long Terme</h3>
+                        <p class="text-blue-100">
+                            Élargir notre impact à l'international et influencer les politiques économiques
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <nav aria-label="Liens rapides" class="flex items-center gap-6">
-        <a href="#services" class="text-sm hover:text-white">Services</a>
-        <a href="#contact" class="text-sm hover:text-white">Contact</a>
-        <div class="flex items-center gap-3">
-          <a href="#" aria-label="Facebook" class="text-slate-400 hover:text-white"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
-          <a href="https://wa.me/50955408424" aria-label="WhatsApp" class="text-slate-400 hover:text-white"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
-          <a href="#" aria-label="Instagram" class="text-slate-400 hover:text-white"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+    <!-- Valeurs Section -->
+    <section id="valeurs" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Nos <span class="gradient-primary bg-clip-text text-transparent">Valeurs</span>
+                </h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Les principes fondamentaux qui guident toutes nos actions et décisions
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Intégrité</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous pratiquons une transparence absolue dans toutes nos transactions et relations.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Responsabilité</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous rendons compte à Dieu, à nos membres et aux communautés que nous servons.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Excellence</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous visons la plus haute qualité dans tous nos programmes et services.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Foi Vivante</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous intégrons la prière et les principes bibliques dans toutes nos activités.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Solidarité</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous croyons en la puissance du partage et de l'entraide communautaire.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg value-card">
+                    <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 text-white">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Bien Commun</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nous cherchons le profit, mais toujours au service du développement humain intégral.
+                    </p>
+                </div>
+            </div>
         </div>
-      </nav>
+    </section>
 
-      <div class="text-sm text-slate-500">© 2025 Eclat Royal</div>
-    </div>
-  </footer>
-
-  <!-- Scripts: Menu, Form & On-Scroll animations (IntersectionObserver + Anime.js) -->
-  <script>
-    // Mobile menu toggle
-    (function(){
-      const btn = document.getElementById('btn-menu');
-      const mobile = document.getElementById('mobile-menu');
-      btn.addEventListener('click', () => {
-        const open = mobile.classList.toggle('hidden') === false;
-        btn.setAttribute('aria-expanded', String(open));
-        mobile.setAttribute('aria-hidden', String(!open));
-      });
-    })();
-
-    // Simple client-side form handling (MVP) with accessibility and minimal validation
-    (function(){
-      const form = document.getElementById('contact-form');
-      const status = document.getElementById('form-status');
-
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // Basic validation
-        const name = form.name.value.trim();
-        const contact = form.contact.value.trim();
-        const service = form.service.value;
-        if (!name || !contact || !service) {
-          status.textContent = 'Veuillez remplir les champs obligatoires.';
-          return;
-        }
-        // Simulate successful submit (replace with real endpoint)
-        status.textContent = 'Envoi en cours…';
-        setTimeout(() => {
-          status.textContent = 'Merci ! Votre message a été envoyé. Nous répondrons sous peu.';
-          form.reset();
-        }, 900);
-      });
-
-      // WhatsApp quick contact: open with prefilled message
-      document.getElementById('whatsapp-contact').addEventListener('click', (e) => {
-        e.preventDefault();
-        const phone = '50955408424';
-        const msg = encodeURIComponent('Bonjour, je souhaite commander/un renseignement sur vos services.');
-        window.open(`https://wa.me/${phone}?text=${msg}`, '_blank', 'noopener');
-      });
-    })();
-
-    // On-scroll animations using IntersectionObserver & Anime.js
-    (function(){
-      const animatedEls = document.querySelectorAll('[data-animate]');
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateIn(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, {threshold: 0.12});
-
-      animatedEls.forEach(el => {
-        // initial state for each element
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(18px)';
-        observer.observe(el);
-      });
-
-      // animation function: applies different "futur premium" patterns depending on element
-      function animateIn(el) {
-        // If element contains a circular decorative child, do an expansion
-        const circle = el.querySelector('.circle-anim');
-        if (circle) {
-          // initial small
-          circle.style.transform = 'scale(.4)';
-          anime.timeline({
-            easing: 'cubicBezier(.2,.9,.2,1)',
-            duration: 750
-          })
-          .add({
-            targets: circle,
-            scale: [0.4, 1.05],
-            opacity: [0.0, 1],
-            duration: 700,
-          })
-          .add({
-            targets: el,
-            translateY: [18,0],
-            opacity: [0,1],
-            duration: 700,
-            offset: '-=500'
-          });
-          return;
-        }
-
-        // For regular cards / sections: apply a layered animation
-        anime.timeline({
-          easing: 'cubicBezier(.2,.9,.2,1)',
-          duration: 700
-        })
-        .add({
-          targets: el,
-          translateY: [18,0],
-          opacity: [0,1],
-          delay: anime.stagger(60),
-        })
-        .add({
-          targets: el.querySelectorAll('.will-change-transform'),
-          scale: [0.98,1],
-          duration: 500,
-          offset: '-=420'
-        });
-      }
-
-      // Additionally animate cards with a cascading effect
-      const cards = document.querySelectorAll('#services article');
-      cards.forEach((card, i) => {
-        card.style.opacity = 0;
-        card.style.transform = 'translateY(18px)';
-      });
-      const cardObs = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // cascade per index
-            const idx = Array.from(cards).indexOf(entry.target);
-            anime({
-              targets: entry.target,
-              translateY: [22,0],
-              opacity: [0,1],
-              duration: 700,
-              delay: idx * 120,
-              easing: 'cubicBezier(.2,.9,.2,1)'
-            });
-            obs.unobserve(entry.target);
-          }
-        });
-      }, {threshold: 0.14});
-      cards.forEach(c => cardObs.observe(c));
-    })();
-
-    // Modal d'achat globale (fonctionnel avec les nouvelles cartes)
-    document.addEventListener("DOMContentLoaded", () => {
-      const modal = document.getElementById("buy-modal");
-      const title = document.getElementById("modal-title");
-      const plansList = document.getElementById("modal-plans");
-      const cancel = document.getElementById("cancel-btn");
-
-      // Gérer ouverture de la modale pour TOUTES les cartes avec classe "buy-btn"
-      document.querySelectorAll(".service-card .buy-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const card = btn.closest(".service-card");
-          const service = card.dataset.service;
-          const phone = card.dataset.phone;
-          const plans = JSON.parse(card.dataset.plans || "[]");
-
-          // Injecter contenu dynamique
-          title.textContent = service;
-          plansList.innerHTML = "";
-
-          if (plans.length === 0) {
-            const li = document.createElement("li");
-            li.innerHTML = `<p class="text-slate-400">Aucun plan disponible</p>`;
-            plansList.appendChild(li);
-          } else {
-            plans.forEach(p => {
-              const li = document.createElement("li");
-              li.innerHTML = `
-                <button class="w-full bg-white/5 hover:bg-white/10 rounded-md px-3 py-2 transition text-left">
-                  <div class="font-medium">${p.plan}</div>
-                  <div class="text-primary font-semibold">${p.price}</div>
+    <!-- Programmes Section -->
+<section id="programmes" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Nos <span class="gradient-primary bg-clip-text text-transparent">Programmes</span>
+                </h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Des formations et accompagnements concrets pour un développement intégral
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="gradient-primary text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-bible"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Formation Spirituelle et Leadership</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Développement du leadership chrétien</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Formation biblique et théologique</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="gradient-secondary text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Mentorat et Coaching</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Accompagnement individuel par des mentors expérimentés</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Suivi personnalisé de projets (professionnels ou spirituels)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Cercles de croissance</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="gradient-accent text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Développement Personnel et Professionnel</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Communication efficace</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Gestion du temps et des priorités</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Compétences entrepreneuriales</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Planification de carrière</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-purple-500 to-pink-500 text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Formation Économique et Entrepreneuriale</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Introduction à la liberté économique chrétienne</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Création et gestion de projets</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Coopération financière (communautés d'investissement, tontines)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-green-500 to-teal-500 text-white text-2xl w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-3">Réseautage et Entraide</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Réseau de soutien mutuel</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Partage d'opportunités</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Connexion communautaire</span>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="gradient-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    Voir notre calendrier d'événements
                 </button>
-              `;
+            </div>
+        </div>
+    </section>
 
-              // Quand l'utilisateur clique sur un plan
-              li.querySelector("button").addEventListener("click", () => {
-                const msg = encodeURIComponent(
-                  `Bonjour 👋, je souhaite acheter le service "${service}"\nPlan choisi : ${p.plan}\nPrix : ${p.price}`
-                );
-                window.open(`https://wa.me/${phone}?text=${msg}`, "_blank", "noopener");
-                modal.classList.add("hidden");
-              });
+    <!-- Équipe Section -->
+    <section id="equipe" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Notre <span class="gradient-primary bg-clip-text text-transparent">Équipe</span>
+                </h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Une équipe dévouée à la promotion de la liberté économique chrétienne
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg gradient-primary flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-1">Joël Nozé</h3>
+                    <p class="text-blue-600 font-medium mb-2">Directeur Général</p>
+                    <p class="text-gray-600 text-sm">
+                        Leader visionnaire avec 15 ans d'expérience en entrepreneuriat chrétien.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg gradient-primary flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-1">Lambert Lesly 
+</h3>
+                    <p class="text-blue-600 font-medium mb-2">Trésorier</p>
+                    <p class="text-gray-600 text-sm">
+                        Expert en gestion financière et investissements éthiques.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg gradient-primary flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-1">Jean Jolius 
+</h3>
+                    <p class="text-blue-600 font-medium mb-2">Secrétaire</p>
+                    <p class="text-gray-600 text-sm">
+                        Spécialiste en administration et gestion de projets.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg gradient-primary flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-1"> Inamour Colin</h3>
+                    <p class="text-blue-600 font-medium mb-2">Directeur des Programmes</p>
+                    <p class="text-gray-600 text-sm">
+                        Entrepreneur et formateur en économie solidaire.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto mt-12 bg-gray-50 p-8 rounded-xl">
+                <h3 class="font-bold text-xl text-gray-800 mb-4 text-center">Rejoindre notre Conseil d'Administration</h3>
+                <p class="text-gray-600 mb-6 text-center">
+                    Vous souhaitez contribuer à notre mission en tant que membre actif de notre gouvernance ?
+                </p>
+                <div class="text-center">
+                    <button class="gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Nous contacter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-              plansList.appendChild(li);
-            });
-          }
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+                    Nous <span class="gradient-accent bg-clip-text text-transparent">Contacter</span>
+                </h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-xl text-blue-100">
+                    Prêt à rejoindre le mouvement pour une économie chrétienne libre et solidaire ?
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div>
+                    <h3 class="font-bold text-xl mb-6">Informations</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Adresse</h4>
+                                <p class="text-blue-100">#4, Anglade, Fermathe 45, Haïti</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-blue-100">info@cicle.org</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white mt-1">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Téléphone</h4>
+                                <p class="text-blue-100">+509 XX XX XX XX</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white mt-1">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Heures d'ouverture</h4>
+                                <p class="text-blue-100">Lundi-Vendredi: 8h-16h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium mb-4">Suivez-nous</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-xl mb-6">Envoyez-nous un message</h3>
+                    
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-blue-100 mb-1">Nom complet</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-blue-100 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-blue-100 mb-1">Sujet</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-blue-100 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all w-full">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          // Afficher la modale
-          modal.classList.remove("hidden");
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
+                                                 <img src="logo_cicle-removebg-preview.png" alt="">
+
+                        </div>
+                        <span class="font-display font-bold text-xl">CICLE</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Centre des Investisseurs Chrétiens pour la Liberté Économique - Former, Investir, Transformer.
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        © 2025 CICLE. Tous droits réservés.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Liens rapides</h4>
+                    <div class="space-y-3">
+                        <a href="#mission" class="block text-gray-400 hover:text-white transition-colors">Mission</a>
+                        <a href="#vision" class="block text-gray-400 hover:text-white transition-colors">Vision</a>
+                        <a href="#valeurs" class="block text-gray-400 hover:text-white transition-colors">Valeurs</a>
+                        <a href="#programmes" class="block text-gray-400 hover:text-white transition-colors">Programmes</a>
+                        <a href="#equipe" class="block text-gray-400 hover:text-white transition-colors">Équipe</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Programmes</h4>
+                    <div class="space-y-3">
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Formations</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Accompagnement</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Réseautage</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Plaidoyer</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Projets à Impact</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Abonnez-vous pour recevoir nos dernières actualités et événements.
+                    </p>
+                    <div class="flex">
+                        <input type="email" placeholder="Votre email" class="flex-grow px-4 py-3 bg-gray-800 rounded-l-lg text-white focus:outline-none">
+                        <button class="gradient-primary text-white px-4 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden';
+        mobileMenu.innerHTML = `
+            <div class="text-center relative">
+                <button id="close-menu-btn" class="absolute top-4 right-4 text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+               <div class="space-y-6">
+    <a href="#mission" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Mission</a>
+    <a href="#vision" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Vision</a>
+    <a href="#valeurs" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Valeurs</a>
+    <a href="celi.html" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">CELI</a>
+    <a href="invest.html" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">CELI CEC</a>
+    <a href="elan-vs.html" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">ELAN VS</a>
+    <a href="#contact" class="block text-white text-xl font-medium hover:text-blue-300 transition-colors">Contact</a>
+
+    <button class="gradient-primary text-white px-8 py-3 rounded-lg font-semibold text-lg hover:shadow-xl transition-all mt-6">
+        Devenir Membre
+    </button>
+</div>
+
+            </div>
+        `;
+        document.body.appendChild(mobileMenu);
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
         });
-      });
-
-      // Fermeture de la modale
-      cancel.addEventListener("click", () => modal.classList.add("hidden"));
-      modal.addEventListener("click", e => {
-        if (e.target === modal) modal.classList.add("hidden");
-      });
-    });
-  </script>
+        
+        document.getElementById('close-menu-btn').addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Scroll reveal animation
+        const revealSections = () => {
+            const sections = document.querySelectorAll('.section-reveal');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('section-visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+        
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
 </body>
 </html>

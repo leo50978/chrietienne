@@ -419,7 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const duree = params.get("duree") || "";
         const prix = params.get("prix") || "";
         const programCatalog = {
-            "Coupe couture": { type: "principale", duree: "12 mois", prix: "1400 HTG" },
+            "Courte couture": { type: "principale", duree: "12 mois", prix: "1400 HTG" },
             "Haute couture": { type: "principale", duree: "36 mois", prix: "1400 HTG" },
             "Electricite du batiment": { type: "principale", duree: "6 mois", prix: "1000 HTG" },
             "Carrelage": { type: "principale", duree: "6 mois", prix: "1000 HTG" },

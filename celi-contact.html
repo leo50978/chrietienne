@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCELI - Contact et inscription</title>
+    <meta name="description" content="Coordonnees, adresse, preinscription et informations de contact de COCELI Ecole professionnelle.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="celi-site.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { "celi-blue": "#1e40af", "celi-green": "#059669", "celi-gold": "#f59e0b", "celi-orange": "#ea580c" } } } };
+    </script>
+</head>
+<body class="page-shell text-slate-900">
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md transition-all duration-300">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between lg:h-20">
+                <a href="celi.html" class="flex items-center gap-3">
+                    <img src="image 1.jpeg" class="site-logo-header" alt="Logo COCELI">
+                    <div class="hidden sm:block"><p class="text-sm font-semibold text-slate-900">COCELI Ecole professionnelle</p><p class="text-xs text-slate-500">Contact et inscription</p></div>
+                </a>
+                <nav class="hidden items-center gap-7 lg:flex">
+                    <a href="celi.html" class="nav-link">Accueil</a>
+                    <a href="celi-formations.html" class="nav-link">Formations</a>
+                    <a href="celi-resultats.html" class="nav-link">Services</a>
+                    <a href="celi-contact.html" class="nav-link nav-link-active">Contact</a>
+                </nav>
+                <button id="mobile-menu-btn" class="rounded-md p-2 text-slate-700 lg:hidden"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu fixed z-[60] translate-x-full transition-transform duration-300 ease-out lg:hidden">
+            <div class="flex h-full flex-col p-6">
+                <div class="flex items-center justify-between border-b border-slate-200 pb-4"><span class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Menu</span><button type="button" class="mobile-menu-close inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700"><i class="fas fa-times"></i></button></div>
+                <nav class="mt-8 space-y-5">
+                    <a href="celi.html" class="block py-2 text-slate-700">Accueil</a>
+                    <a href="celi-formations.html" class="block py-2 text-slate-700">Formations</a>
+                    <a href="celi-resultats.html" class="block py-2 text-slate-700">Services</a>
+                    <a href="celi-contact.html" class="block py-2 font-semibold text-celi-blue">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-4 pb-16 pt-24 sm:px-6 lg:px-8 lg:pt-28">
+        <section class="hero-panel mx-auto max-w-7xl overflow-hidden rounded-[32px] px-6 py-12 text-white shadow-2xl sm:px-10 lg:px-14">
+            <span class="soft-badge badge-blue bg-white/10 text-white"><i class="fas fa-phone-volume"></i> Contact et preinscription</span>
+            <h1 class="section-heading mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">Parlez directement avec COCELI pour vous inscrire ou demander des infos</h1>
+            <p class="mt-6 max-w-3xl text-lg text-white/85">La meilleure facon de commencer est simple : passer a l'ecole, appeler l'un des numeros affiches ou envoyer une demande de preinscription.</p>
+        </section>
+
+        <section class="mx-auto mt-14 grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div class="card-surface rounded-[30px] p-8">
+                <h2 class="section-heading text-3xl font-bold text-slate-900">Coordonnees utiles</h2>
+                <div class="mt-6 space-y-4">
+                    <div class="contact-chip flex items-center gap-4 rounded-3xl p-4"><i class="fas fa-location-dot text-celi-blue"></i><span>Delmas 95, en face Carrefour Lector, Impasse E. Roy #26, local du College Gesthemane</span></div>
+                    <div class="contact-chip flex items-center gap-4 rounded-3xl p-4"><i class="fas fa-phone text-celi-blue"></i><span>+509 4818 5473</span></div>
+                    <div class="contact-chip flex items-center gap-4 rounded-3xl p-4"><i class="fas fa-phone text-celi-blue"></i><span>+509 4709 0158</span></div>
+                    <div class="contact-chip flex items-center gap-4 rounded-3xl p-4"><i class="fas fa-clock text-celi-green"></i><span>Lun-Ven 15h00-18h00 | Samedi 13h00-18h00 | Dimanche 11h00-17h00</span></div>
+                </div>
+            </div>
+            <div class="card-surface rounded-[30px] p-8">
+                <h2 class="section-heading text-3xl font-bold text-slate-900">Demande d'information</h2>
+                <form class="mt-6 space-y-5">
+                    <input type="text" placeholder="Nom complet" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue">
+                    <input type="tel" placeholder="Telephone" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue">
+                    <select class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue"><option>Objet de votre demande</option><option>Informations sur une formation</option><option>Preinscription</option><option>Horaires et frais</option><option>Acces a l'ecole</option></select>
+                    <textarea rows="5" placeholder="Votre message..." class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue"></textarea>
+                    <button type="submit" class="btn-primary-shared inline-flex rounded-full px-6 py-3 font-semibold text-white">Envoyer la demande</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="mx-auto mt-14 max-w-7xl rounded-[30px] card-surface p-8 lg:p-10">
+            <div class="mb-8"><span class="soft-badge badge-green"><i class="fas fa-user-plus"></i> Preinscription</span><h2 class="section-heading mt-4 text-3xl font-bold text-slate-900">Choisissez une formation et laissez vos coordonnees</h2></div>
+            <form class="grid gap-5 md:grid-cols-2">
+                <select class="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue"><option>Formation souhaitee</option><option>Coupe couture</option><option>Haute couture</option><option>Electricite du batiment</option><option>Carrelage</option><option>Plomberie sanitaire</option><option>Installation panneaux solaires</option><option>Informatique bureautique</option><option>Beat maker</option><option>Depannage ordinateurs et telephones</option></select>
+                <input type="text" placeholder="Prenom" class="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue">
+                <input type="text" placeholder="Nom" class="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue">
+                <input type="number" placeholder="Age" class="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue">
+                <input type="tel" placeholder="Telephone" class="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue">
+                <select class="rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-celi-blue"><option>Disponibilite</option><option>Lundi au vendredi 15h00 - 18h00</option><option>Samedi 13h00 - 18h00</option><option>Dimanche 11h00 - 17h00</option></select>
+                <div class="rounded-2xl bg-slate-50 px-4 py-4 text-sm text-slate-600 md:col-span-2"><p>Frais administratifs a prevoir : inscription 200 HTG et entree 500 HTG.</p></div>
+                <div class="md:col-span-2"><button type="submit" class="btn-primary-shared inline-flex rounded-full px-6 py-3 font-semibold text-white">Envoyer ma preinscription</button></div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-slate-950 px-4 py-14 text-white sm:px-6 lg:px-8">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
+            <div><div class="flex items-center gap-3"><img src="image 1.jpeg" class="h-12 w-auto" alt="Logo COCELI"><h3 class="section-heading text-2xl font-semibold">COCELI Ecole professionnelle</h3></div><p class="mt-4 max-w-md text-slate-300">Toutes les coordonnees pratiques de l'ecole et un formulaire simple pour lancer votre demande.</p></div>
+            <div><h4 class="text-lg font-semibold">Navigation</h4><div class="mt-4 grid gap-3"><a href="celi.html" class="footer-link">Accueil</a><a href="celi-formations.html" class="footer-link">Formations</a><a href="celi-resultats.html" class="footer-link">Services et frais</a><a href="celi-actualites.html" class="footer-link">Formations speciales</a><a href="celi-partenaires.html" class="footer-link">Adresse et acces</a><a href="celi-contact.html" class="footer-link">Contact</a></div></div>
+            <div><h4 class="text-lg font-semibold">Infos pratiques</h4><div class="mt-4 space-y-3 text-slate-300"><p>Delmas 95, en face Carrefour Lector</p><p>Impasse E. Roy #26, local du College Gesthemane</p><p>+509 4818 5473</p><p>+509 4709 0158</p></div></div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="celi-site.js"></script>
+</body>
+</html>

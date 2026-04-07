@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCELI - Services et frais</title>
+    <meta name="description" content="Services proposes par COCELI, horaires flexibles, frais d'inscription et coordonnees de l'ecole.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="coceli-site.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { "celi-blue": "#1e40af", "celi-green": "#059669", "celi-gold": "#f59e0b", "celi-orange": "#ea580c" } } } };
+    </script>
+</head>
+<body class="page-shell text-slate-900">
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md transition-all duration-300">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between lg:h-20">
+                <a href="coceli.html" class="flex items-center gap-3">
+                    <img src="image 1.jpeg" class="site-logo-header" alt="Logo COCELI">
+                    <div class="hidden sm:block"><p class="text-sm font-semibold text-slate-900">COCELI Ecole professionnelle</p><p class="text-xs text-slate-500">Services, horaires et frais</p></div>
+                </a>
+                <nav class="hidden items-center gap-7 lg:flex">
+                    <a href="coceli.html" class="nav-link">Accueil</a>
+                    <a href="coceli-formations.html" class="nav-link">Formations</a>
+                    <a href="coceli-resultats.html" class="nav-link nav-link-active">Services</a>
+                    <a href="coceli-contact.html" class="nav-link">Contact</a>
+                </nav>
+                <a href="coceli-contact.html" class="btn-primary-shared hidden rounded-full px-5 py-3 text-sm font-semibold text-white lg:inline-flex">Contacter l'ecole</a>
+                <button id="mobile-menu-btn" class="rounded-md p-2 text-slate-700 lg:hidden"><i class="fas fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu fixed z-[60] translate-x-full transition-transform duration-300 ease-out lg:hidden">
+            <div class="flex h-full flex-col p-6">
+                <div class="flex items-center justify-between border-b border-slate-200 pb-4"><span class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Menu</span><button type="button" class="mobile-menu-close inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700"><i class="fas fa-times"></i></button></div>
+                <nav class="mt-8 space-y-5">
+                    <a href="coceli.html" class="block py-2 text-slate-700">Accueil</a>
+                    <a href="coceli-formations.html" class="block py-2 text-slate-700">Formations</a>
+                    <a href="coceli-resultats.html" class="block py-2 font-semibold text-celi-blue">Services</a>
+                    <a href="coceli-contact.html" class="block py-2 text-slate-700">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-4 pb-16 pt-24 sm:px-6 lg:px-8 lg:pt-28">
+        <section class="hero-secondary mx-auto max-w-7xl overflow-hidden rounded-[32px] px-6 py-12 text-white shadow-2xl sm:px-10 lg:px-14">
+            <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+                <div>
+                    <span class="soft-badge badge-blue bg-white/10 text-white"><i class="fas fa-file-lines"></i> Infos pratiques</span>
+                    <h1 class="section-heading mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">Services proposes, horaires flexibles et frais clairs</h1>
+                    <p class="mt-6 max-w-2xl text-lg text-white/85">Cette page rassemble les informations pratiques de l'affiche COCELI : les services phares, les horaires de cours et les frais d'entree et d'inscription.</p>
+                </div>
+                <div class="grid gap-4">
+                    <div class="metric-box rounded-3xl p-5"><p class="text-sm uppercase tracking-[0.24em] text-white/60">Services phares</p><p class="mt-2 text-4xl font-bold">4</p></div>
+                    <div class="metric-box rounded-3xl p-5"><p class="text-sm uppercase tracking-[0.24em] text-white/60">Plages horaires</p><p class="mt-2 text-4xl font-bold">3</p></div>
+                    <div class="metric-box rounded-3xl p-5"><p class="text-sm uppercase tracking-[0.24em] text-white/60">Frais de base</p><p class="mt-2 text-4xl font-bold">700 HTG</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mx-auto mt-14 max-w-7xl">
+            <div class="mb-8"><span class="soft-badge badge-green"><i class="fas fa-screwdriver-wrench"></i> Nos services</span><h2 class="section-heading mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">Les services mis en avant sur l'affiche</h2></div>
+            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <article class="page-card card-surface overflow-hidden rounded-[28px]"><img src="https://loremflickr.com/900/700/plumber,repair?lock=51" alt="Plomberie" class="h-52 w-full object-cover"><div class="p-6"><h3 class="text-xl font-bold text-slate-900">Plomberie</h3><p class="mt-3 text-sm leading-6 text-slate-600">Un service pratique autour des installations et depannages sanitaires.</p></div></article>
+                <article class="page-card card-surface overflow-hidden rounded-[28px]"><img src="https://loremflickr.com/900/700/electrician,wire?lock=52" alt="Electricite" class="h-52 w-full object-cover"><div class="p-6"><h3 class="text-xl font-bold text-slate-900">Electricite</h3><p class="mt-3 text-sm leading-6 text-slate-600">Travaux electriques de batiment et apprentissage des bons gestes techniques.</p></div></article>
+                <article class="page-card card-surface overflow-hidden rounded-[28px]"><img src="https://loremflickr.com/900/700/sewing,tailor?lock=53" alt="Couture" class="h-52 w-full object-cover"><div class="p-6"><h3 class="text-xl font-bold text-slate-900">Couture</h3><p class="mt-3 text-sm leading-6 text-slate-600">Coupe, confection et perfectionnement dans les metiers du textile.</p></div></article>
+                <article class="page-card card-surface overflow-hidden rounded-[28px]"><img src="https://loremflickr.com/900/700/solar,energy?lock=54" alt="Installation panneaux solaires" class="h-52 w-full object-cover"><div class="p-6"><h3 class="text-xl font-bold text-slate-900">Installation panneaux solaires</h3><p class="mt-3 text-sm leading-6 text-slate-600">Mise en avant d'un metier technique lie aux installations solaires.</p></div></article>
+            </div>
+        </section>
+
+        <section class="mx-auto mt-14 grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div class="card-surface rounded-[30px] p-8">
+                <span class="soft-badge badge-blue"><i class="fas fa-clock"></i> Horaires flexibles</span>
+                <div class="mt-6 space-y-8">
+                    <div class="timeline-item"><h3 class="text-lg font-semibold text-slate-900">Lundi au vendredi</h3><p class="mt-2 text-slate-600">15h00 - 18h00</p></div>
+                    <div class="timeline-item"><h3 class="text-lg font-semibold text-slate-900">Samedi</h3><p class="mt-2 text-slate-600">13h00 - 18h00</p></div>
+                    <div class="timeline-item"><h3 class="text-lg font-semibold text-slate-900">Dimanche</h3><p class="mt-2 text-slate-600">11h00 - 17h00</p></div>
+                </div>
+            </div>
+            <div class="card-surface rounded-[30px] p-8">
+                <span class="soft-badge badge-gold"><i class="fas fa-wallet"></i> Frais</span>
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                    <div class="rounded-3xl bg-slate-50 p-6"><p class="text-sm uppercase tracking-[0.2em] text-slate-400">Inscription</p><p class="mt-3 text-4xl font-bold text-slate-900">200 HTG</p></div>
+                    <div class="rounded-3xl bg-slate-50 p-6"><p class="text-sm uppercase tracking-[0.2em] text-slate-400">Entree</p><p class="mt-3 text-4xl font-bold text-slate-900">500 HTG</p></div>
+                </div>
+                <div class="mt-6 rounded-3xl bg-slate-50 p-6 text-slate-600"><p>Les formations disponibles affichent ensuite leur propre frais par session de 3 mois sur la page formations.</p></div>
+            </div>
+        </section>
+
+        <section class="mx-auto mt-14 max-w-7xl rounded-[30px] bg-gradient-to-r from-celi-blue to-celi-green p-8 text-white shadow-2xl lg:p-10">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div><h2 class="section-heading text-3xl font-bold">Adresse officielle de l'ecole</h2><p class="mt-3 max-w-2xl text-white/80">Delmas 95, en face Carrefour Lector, Impasse E. Roy #26, au local du College Gesthemane.</p><p class="mt-3 text-white/80">Contacts : +509 4818 5473 et +509 4709 0158</p></div>
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <a href="coceli-contact.html" class="rounded-full bg-white px-6 py-3 text-center font-semibold text-celi-blue">Nous contacter</a>
+                    <a href="coceli-formations.html" class="btn-outline-shared rounded-full px-6 py-3 text-center font-semibold text-white">Voir les formations</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-950 px-4 py-14 text-white sm:px-6 lg:px-8">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
+            <div><div class="flex items-center gap-3"><img src="image 1.jpeg" class="h-12 w-auto" alt="Logo COCELI"><h3 class="section-heading text-2xl font-semibold">COCELI Ecole professionnelle</h3></div><p class="mt-4 max-w-md text-slate-300">Tous les services utiles, les horaires de cours et les frais pratiques sont maintenant centralises ici.</p></div>
+            <div><h4 class="text-lg font-semibold">Navigation</h4><div class="mt-4 grid gap-3"><a href="coceli.html" class="footer-link">Accueil</a><a href="coceli-formations.html" class="footer-link">Formations</a><a href="coceli-resultats.html" class="footer-link">Services et frais</a><a href="coceli-actualites.html" class="footer-link">Formations speciales</a><a href="coceli-partenaires.html" class="footer-link">Adresse et acces</a><a href="coceli-contact.html" class="footer-link">Contact</a></div></div>
+            <div><h4 class="text-lg font-semibold">Infos pratiques</h4><div class="mt-4 space-y-3 text-slate-300"><p>Delmas 95, en face Carrefour Lector</p><p>Impasse E. Roy #26, local du College Gesthemane</p><p>+509 4818 5473</p><p>+509 4709 0158</p></div></div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="coceli-site.js"></script>
+</body>
+</html>

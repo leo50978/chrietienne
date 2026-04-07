@@ -425,6 +425,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "Carrelage": { type: "principale", duree: "6 mois", prix: "1000 HTG" },
             "Plomberie sanitaire": { type: "principale", duree: "6 mois", prix: "1500 HTG" },
             "Installation panneaux solaires": { type: "principale", duree: "Session pratique", prix: "1200 HTG" },
+            "Auto-école": { type: "principale", duree: "3 mois", prix: "3000 HTG" },
             "Informatique bureautique": { type: "speciale", duree: "3 mois", prix: "2500 HTG" },
             "Beat maker": { type: "speciale", duree: "3 mois", prix: "2500 HTG" },
             "Depannage ordinateurs et telephones": { type: "speciale", duree: "3 mois", prix: "2500 HTG" }
